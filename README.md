@@ -15,7 +15,8 @@ O intuito deste documento é apresentar os pré-requisitos para a avaliação t�
 Podemos dividir esta avaliação em duas principais etapas:
 
 1. Desenvolvimento front-end do layout [disponível neste link](https://www.figma.com/file/OAMrciHo0uOf4H2cgg3MDm/Coopers---Site-para-teste-Front-End-%2F-Full-Stack?node-id=290%3A6333), sendo o mais fiel possível em todos os navegadores mais utilizados na atualidade: Chrome, Safari, Firefox e Microsoft Edge.
-2. Desenvolvimento das funcionalidades para cadastro e login de usuários e to-do list utilizando React e Node.js.
+2. Desenvolvimento das funcionalidades para cadastro e login de usuários e to-do list utilizando React e Node.js. Os itens da to-do list precisam estar atrelados ao login.
+3. Implementação de envio dos e-mails no formulário de contato.
 
 ## Critérios de avaliação
 
