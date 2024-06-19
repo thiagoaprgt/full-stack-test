@@ -1,59 +1,54 @@
-<p align="center">
-  <img src="https://coopers.pro/assets/img/coopers-brand.png" alt="Marca da Coopers" />
-</p>
 
-<p align="center">
-  <em>Fast, flexible, trustful.</em>
-</p>
+<p align="center"> <img src="https://coopers.pro/assets/img/coopers-brand.png" alt="Marca da Coopers" /> </p> <p align="center"> <em>Fast, flexible, trustful.</em> </p>
 
 # Avaliação Full Stack Developer
 
-O intuito deste documento é apresentar os pré-requisitos para a avaliação técnica do desenvolvedor full stack, com base em layout criado por nossa equipe especificamente para esta finalidade.
+Este documento tem como objetivo apresentar os pré-requisitos para a avaliação técnica do desenvolvedor full stack, com base em um layout criado por nossa equipe especificamente para esta finalidade.
 
 ## Briefing
 
-Podemos dividir esta avaliação em três principais etapas:
+A avaliação está dividida em três etapas principais:
 
-1. Desenvolvimento front-end do layout [disponível neste link](https://www.figma.com/file/OAMrciHo0uOf4H2cgg3MDm/Coopers---Site-para-teste-Front-End-%2F-Full-Stack?node-id=290%3A6333), sendo o mais fiel possível em todos os navegadores mais utilizados na atualidade: Chrome, Safari, Firefox e Microsoft Edge.
-2. Desenvolvimento das funcionalidades para cadastro e login de usuários e to-do list utilizando React e Node.js. Os itens da to-do list precisam estar atrelados ao login.
-3. Implementação de envio dos e-mails no formulário de contato.
+1.  Desenvolvimento front-end do layout [disponível neste link](https://www.figma.com/file/OAMrciHo0uOf4H2cgg3MDm/Coopers---Site-para-teste-Front-End-%2F-Full-Stack?node-id=290%3A6333), assegurando máxima fidelidade em todos os navegadores mais utilizados atualmente: Chrome, Safari, Firefox e Microsoft Edge.
+2.  Desenvolvimento das funcionalidades de cadastro e login de usuários, e uma to-do list utilizando React e Node.js. Os itens da to-do list devem estar vinculados ao login do usuário.
+3.  Implementação do envio de e-mails no formulário de contato.
 
-## Critérios de avaliação
+## Critérios de Avaliação
 
 ### HTML
 
-Avaliaremos a qualidade do código escrito, desde a correta utilização de tags de acordo com sua semântica, como o aspecto de Acessibilidade seguindo as boas práticas dos padrões WCAG para uso de atributos.
+Avaliaremos a qualidade do código escrito, incluindo a correta utilização de tags de acordo com sua semântica, bem como aspectos de acessibilidade seguindo as boas práticas dos padrões WCAG.
 
-Além da semântica, avaliaremos a inserção de comentários, uso coerente de classes e ID's nas tags e código enxuto, sem redundâncias.
+Além da semântica, consideraremos a inserção de comentários, o uso coerente de classes e IDs nas tags, e a limpeza do código, evitando redundâncias.
 
 ### CSS
 
-A entrega deve ser Responsive, ou seja, adaptação da interface para telas grandes (desktop), médias (tablets) e pequenas (celulares), porém essa adaptação fica a critério do desenvolvedor, não havendo indicação das alterações visuais para as telas menores no layout.
+A entrega deve ser responsiva, ou seja, adaptada para telas grandes (desktop), médias (tablets) e pequenas (celulares). A adaptação fica a critério do desenvolvedor, não havendo indicação das alterações visuais para as telas menores no layout.
 
-Além da correta reprodução do design, avaliaremos o código CSS quanto a conceitos de performance, coerência, lógica de estruturação de componentes, uso de propriedades e compatibilidade entre os navegadores.
+Além da correta reprodução do design, avaliaremos o código CSS em termos de performance, coerência, lógica de estruturação de componentes, uso de propriedades e compatibilidade entre os navegadores.
 
-**É imprescindível o uso da metodologia Mobile First para a aplicação do Responsive**.
+**É imprescindível o uso da metodologia Mobile First na aplicação do design responsivo.**
 
-### Aplicação e funcionalidades
+### Aplicação e Funcionalidades
 
-- Fazer os CRUDs funcionais de uma to-do List;
-- Tornar a lista operacional com drag-and-drop, exclusão, adição, etc.;
-- Trabalho adicional: fazer um login/senha para acessar a página (acesso com credenciais).
+-   Implementação funcional dos CRUDs para uma to-do list.
+-   Tornar a lista operacional com funcionalidades de drag-and-drop, exclusão, adição, etc.
+-   Implementar um sistema de login/senha para acessar a página (acesso com credenciais).
 
 ### Performance
 
-Avaliaremos as medidas utilizadas para garantir uma boa performance de carregamento e renderização da página.
+Avaliaremos as medidas adotadas para garantir uma boa performance de carregamento e renderização da página.
 
 ## Prazo
 
-O prazo limite para entrega da avaliação é de 2 semanas.
+O prazo para entrega da avaliação é de 2 semanas.
 
 ## Entrega
 
-A entrega deve ser feita disponibilizando um link para visualizar o projeto rodando em servidor remoto, além de repositório para avaliação do código-fonte.
+A entrega deve incluir um link para visualizar o projeto rodando em um servidor remoto, além de um repositório para avaliação do código-fonte.
 
-Também esperamos receber um descritivo comentando como foi o processo de desenvolvimento deste desafio, incluindo as dificuldades e soluções encontradas.
+Esperamos também receber um descritivo comentando como foi o processo de desenvolvimento deste desafio, incluindo as dificuldades encontradas e as soluções adotadas.
 
 ## Dúvidas?
 
-É só entrar em contato conosco pelo email coopers@coopers.pro.
+Entre em contato conosco pelo email coopers@coopers.digital
