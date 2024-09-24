@@ -10,8 +10,10 @@ Este documento tem como objetivo apresentar os pré-requisitos para a avaliaçã
 A avaliação está dividida em três etapas principais:
 
 1.  Desenvolvimento front-end do layout [disponível neste link](https://www.figma.com/file/OAMrciHo0uOf4H2cgg3MDm/Coopers---Site-para-teste-Front-End-%2F-Full-Stack?node-id=290%3A6333), assegurando máxima fidelidade em todos os navegadores mais utilizados atualmente: Chrome, Safari, Firefox e Microsoft Edge.
-2.  Desenvolvimento das funcionalidades de cadastro e login de usuários, e uma to-do list utilizando React e Node.js. Os itens da to-do list devem estar vinculados ao login do usuário.
-3.  Implementação do envio de e-mails no formulário de contato.
+2.  Desenvolvimento das funcionalidades de cadastro e login de usuários, e uma to-do list utilizando React e Node.js. O layout não possui a interface de cadastro do usuário, mas você pode reaproveitar o layout do login como base para o processo de sign up.
+3.  Os itens da to-do list devem estar vinculados ao login do usuário. No layout apresentamos todas as variações: quando se faz o "check" em um item, ele deve ser movido para a lista de itens realizados; a edição do texto do item pode ser feita ao clicar nele; passando o mouse pelo item deve mostrar o "delete" e, ao clicar, remove o item da lista.
+5.  A seção "good things" é um carrossel de posts, então esperamos que seja feita a navegação horizontal dos cards.
+6.  Implementação do envio de e-mails no formulário de contato.
 
 ## Critérios de Avaliação
 
