@@ -16,7 +16,7 @@ export function NavBar() {
                 
 
                 <div className={styles.navLeft}>
-                    <button>Login</button>
+                    <div>Entrar</div>
                 </div>
                
             

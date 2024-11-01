@@ -31,9 +31,11 @@ nav > .navRight {
     align-self: center;
 }
 
-.navLeft > button {
-    border: 2px solid;
+.navLeft > div {
+    color: white;
+    background-color: black;
     align-self: center;
+    padding: 5px 20px 5px 20px;
 }
 
 nav > .navLeft {
