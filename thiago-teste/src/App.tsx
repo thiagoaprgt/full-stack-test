@@ -1,4 +1,5 @@
 import {NavBar} from './components/navbar/navBar.tsx'
+import {Section} from './components/section/section.tsx'
 // import {Footer} from './components/footer'
 
 
@@ -9,6 +10,7 @@ function App() {
     <>
       
       <NavBar />
+      <Section />
       {/* <Footer /> */}
 
     </>

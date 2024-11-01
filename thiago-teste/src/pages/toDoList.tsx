@@ -1,3 +1,5 @@
+import styles from './navBar.module.css'
+
 export function doList() {
     return(
         <>
