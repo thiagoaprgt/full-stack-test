@@ -1,0 +1,35 @@
+section {
+    display: flex;
+    flex-direction: row;    
+   
+}
+
+
+section > .sectionRight, section > .sectionLeft {
+    display: flex;
+    flex-direction: row;    
+    padding: 10px;
+  
+  
+   
+}
+
+section > .sectionLeft {    
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+section > .sectionLeft > svg {
+    margin-top: 25px;
+}
+
+section > .sectionRight {
+    margin: auto;
+}
+ 
+
+
+
+
