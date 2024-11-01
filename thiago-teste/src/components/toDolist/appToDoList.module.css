@@ -1,0 +1,26 @@
+.appToDoList form {
+    display: flex;    
+    justify-content: center;
+    flex-direction: column;
+    
+    
+    
+    
+}
+
+.appToDoList form .inputs {
+    display: flex;
+    align-self: center;    
+}
+
+.appToDoList form .inputs > div {
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;  
+}
+
+.appToDoList form button {
+    width: 200px;
+    align-self: center;
+    margin-top: 20px;
+}

@@ -1,8 +1,12 @@
+main {
+    
+}
+
 .toDoListBanner > svg {
 
    
     z-index: -2;
-    position: absolute;
+    position: relative;
    
     margin: auto;
 
