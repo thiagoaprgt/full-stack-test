@@ -1,6 +1,7 @@
 import {NavBar} from './components/navbar/navBar.tsx'
 import {Section} from './components/section/section.tsx'
 import styles from './components/body/body.module.css'
+import {ToDoList} from './pages/toDolist/toDoList.tsx'
 // import {Footer} from './components/footer'
 
 
@@ -23,6 +24,11 @@ function App() {
           <Section />
 
         </div>
+
+        <ToDoList />
+
+        
+
 
         
         {/* <Footer /> */}
