@@ -1,0 +1,55 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    
+    padding: 10px;
+   
+    
+}
+
+nav > .navRight, nav > .navLeft {
+    display: flex;
+    flex-direction: row;    
+    padding: 10px;
+    /* border: 2px solid; */
+    width: 50%;
+
+}
+
+nav > div, nav > button {
+    margin-left: 5px;
+}
+
+nav > .navRight {
+    /* border: 2px solid; */
+   justify-content: start;
+   
+}
+
+.navRight > div {
+    /* border: 2px solid; */
+    align-self: center;
+}
+
+.navLeft > button {
+    border: 2px solid;
+    align-self: center;
+}
+
+nav > .navLeft {
+    justify-content: end;
+}
+
+.logo{
+    color: green;
+   font-size: 50px;
+    transform: rotate(90deg)
+}
+
+nav > button {
+   align-content: end;
+    
+}
+
+
+
