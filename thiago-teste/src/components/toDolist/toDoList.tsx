@@ -1,5 +1,5 @@
 import styles from './toDoList.module.css'
-import {AppToDoList} from './appToDoList'
+import {AppToDoList, addTask} from './appToDoList'
 
 export function ToDoList() {
     return(

@@ -1,5 +1,5 @@
 import styles from './appToDoList.module.css'
-// className={styles.sectionLeft}
+import {connection} from '../../database/connection/connection.tsx'
 
 export function AppToDoList() {
     return(
@@ -12,20 +12,43 @@ export function AppToDoList() {
                   <div className={styles.inputs}>
                         <div>
                             <label>Título da nova tarefa:</label>
-                            <input type="text" />
+                            <input type="text" id="newTitle" />
                         </div>
 
                         <div>
                             <label>Descrição da nova tarefa:</label>
-                            <input type="text" />
+                            <input type="text" id="newDescription"/>
                         </div>
                   </div>
 
                     <button>adicionar a lista</button>
                 </form>
 
-            </div>
+            </div>            
 
         </>
     );
+}
+
+
+export async function addTask() {
+
+    let form = new FormData();
+    let title = document.querySelectorAll('#newTitle')[0];
+    let description = document.querySelectorAll('#newDescription')[0];
+
+    form.append("title", `${title}` );
+    form.append("description", `${description}`);
+
+    let url = '/api';
+
+    let request = null;
+
+    request = await fetch(url, {
+        
+        method: "POST",
+        body: form
+
+    });
+
 }
