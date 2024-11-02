@@ -1,0 +1,38 @@
+# portas "porta do container":"porta da máquina" 
+#para entrar dentro do container do docker do mysql e nginx: docker exec -it (colocar aqui o container_name) /bin/bash
+#para entra no terminal do mysql: mysql -u root -p
+#lista as redes docker: docker network ls
+#ver os containers que estão dentro de uma rede: docker network inspect (nome da rede)
+
+version: "3.7"
+
+services:
+  
+  db:
+    image: mysql
+    container_name: db
+    restart: always
+    ports:
+      - 33060:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: thiago
+      MYSQL_DATABASE: coopers
+    networks:
+      - laravel
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
+    
+  
