@@ -32,6 +32,20 @@ export class repositoryToDoList {
 
     }
 
+
+    static async findUser(userId) {
+
+        let conn = await connection.open();
+        let [rows, fields] = await conn.query(`
+            SELECT * FROM users WHERE
+                email = '${email}' && 
+                password = '${pass} 
+        `);  
+
+        return await rows;
+
+    }
+
     
 
 }
