@@ -10,4 +10,11 @@ api.get('/', async (request, response) => {
 
 })
 
+
+api.get('/toDo/:userId', async (request, response) => {    
+
+    response.json( await repositoryToDoList.getAllTaskToDoByUserId(request.params.userId));
+
+})
+
 api.listen(8001)
