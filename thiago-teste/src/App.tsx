@@ -11,7 +11,7 @@ function App() {
   return (
     <>
 
-      <body>
+      
 
         <div className={styles.navegation}>
 
@@ -33,7 +33,7 @@ function App() {
         
         {/* <Footer /> */}
         
-      </body>
+     
       
       
 
