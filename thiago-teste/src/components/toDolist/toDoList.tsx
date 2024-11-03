@@ -1,5 +1,5 @@
 import styles from './toDoList.module.css'
-import {AppToDoList} from './appToDoList'
+// import {AppToDoList} from './appToDoList'
 
 export function ToDoList() {
     return(
@@ -19,7 +19,7 @@ export function ToDoList() {
 
                 </div>
 
-                <AppToDoList />
+                
 
 
                 
