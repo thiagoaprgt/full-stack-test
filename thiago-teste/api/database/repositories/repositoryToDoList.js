@@ -23,7 +23,7 @@ export class repositoryToDoList {
     }
 
 
-    static async createUser(userId) {
+    static async createUser() {
 
         let conn = await connection.open();
         await conn.query(`
@@ -33,7 +33,7 @@ export class repositoryToDoList {
     }
 
 
-    static async findUser(userId) {
+    static async findUser() {
 
         let conn = await connection.open();
         let [rows, fields] = await conn.query(`
