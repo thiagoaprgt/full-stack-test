@@ -4,6 +4,15 @@ import { repositoryToDoList } from './database/repositories/repositoryToDoList.j
 
 const api = express();
 
+
+
+api.use((req, res, next) => {
+    res.append('Access-Control-Allow-Origin', ['*']);
+    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.append('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
 api.get('/', async (request, response) => {    
 
     response.json( await repositoryToDoList.getAllTask());

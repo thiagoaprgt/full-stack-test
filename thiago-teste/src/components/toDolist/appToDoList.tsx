@@ -2,6 +2,34 @@ import styles from './appToDoList.module.css'
 
 
 export function AppToDoList() {
+
+    const addTaskButton = document.querySelectorAll('#addTaskButton')[0];    
+
+    const addTask =  async () => {
+
+        let form = new FormData();
+        let title = document.querySelectorAll('#newTitle')[0];
+        let description = document.querySelectorAll('#newDescription')[0];
+    
+        form.append("title", `${title}` );
+        form.append("description", `${description}`);
+    
+        let url = 'http://localhost:8001/';     
+    
+       
+    
+        let request = await fetch(url, {
+            
+            method: "GET"
+    
+        });
+
+        let json = await request.json();
+        
+        console.log(json)
+    }
+
+
     return(
         <>
 
@@ -21,34 +49,11 @@ export function AppToDoList() {
                         </div>
                   </div>
 
-                    <div className={styles.button}>adicionar a lista</div>
+                    <div id="addTaskButton" onClick={addTask} className={styles.button}>adicionar a lista</div>
                 </form>
 
             </div>            
 
         </>
     );
-}
-
-
-export async function addTask() {
-
-    let form = new FormData();
-    let title = document.querySelectorAll('#newTitle')[0];
-    let description = document.querySelectorAll('#newDescription')[0];
-
-    form.append("title", `${title}` );
-    form.append("description", `${description}`);
-
-    let url = 'http://localhost:8001/';
-
-    let request = null;
-
-    request = await fetch(url, {
-        
-        method: "POST",
-        body: form
-
-    });
-
 }
