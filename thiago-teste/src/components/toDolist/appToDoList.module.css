@@ -19,8 +19,17 @@
     flex-direction: column;  
 }
 
-.appToDoList form button {
+.appToDoList form .button {
     width: 200px;
     align-self: center;
     margin-top: 20px;
+    border: 2px solid;
+    color: white;
+    background-color: black;
+    text-align: center;
+    
+}
+
+.appToDoList form .button:hover {
+    color: green;
 }

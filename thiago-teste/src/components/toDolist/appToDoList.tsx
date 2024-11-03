@@ -21,7 +21,7 @@ export function AppToDoList() {
                         </div>
                   </div>
 
-                    <button>adicionar a lista</button>
+                    <div className={styles.button}>adicionar a lista</div>
                 </form>
 
             </div>            
