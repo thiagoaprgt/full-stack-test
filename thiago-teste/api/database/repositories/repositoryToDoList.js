@@ -22,6 +22,16 @@ export class repositoryToDoList {
 
     }
 
+
+    static async createUser(userId) {
+
+        let conn = await connection.open();
+        await conn.query(`
+            INSERT INTO users VALUES ('${name}', '${email}', '${password}')
+        `); 
+
+    }
+
     
 
 }
