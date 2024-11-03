@@ -32,4 +32,5 @@
 
 .appToDoList form .button:hover {
     color: green;
+    cursor:default
 }
