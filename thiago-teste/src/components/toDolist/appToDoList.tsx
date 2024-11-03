@@ -1,5 +1,5 @@
 import styles from './appToDoList.module.css'
-import {connection} from '../../database/connection/connection.tsx'
+
 
 export function AppToDoList() {
     return(
@@ -40,7 +40,7 @@ export async function addTask() {
     form.append("title", `${title}` );
     form.append("description", `${description}`);
 
-    let url = '/api';
+    let url = 'http://localhost:8001/';
 
     let request = null;
 

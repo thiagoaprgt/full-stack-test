@@ -5,3 +5,5 @@ create table taskToDoList (
     description varchar(10000) not null
 
 );
+
+INSERT INTO `taskToDoList`(`title`, `description`) VALUES ('tarefa1','descrição1') , ('tarefa2','fasfasdfas');
