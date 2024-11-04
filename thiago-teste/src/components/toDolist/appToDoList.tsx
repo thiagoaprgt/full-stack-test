@@ -3,7 +3,7 @@ import styles from './appToDoList.module.css'
 
 export function AppToDoList() {
 
-    const addTaskButton = document.querySelectorAll('#addTaskButton')[0];    
+    
 
     const addTask =  async () => {
 

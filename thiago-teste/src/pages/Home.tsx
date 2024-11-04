@@ -1,4 +1,5 @@
 import {NavBar} from '../components/navbar/navBar.tsx'
+import { LoginForm } from '../components/loginForm/loginForm.tsx'
 import {Section} from '../components/section/section.tsx'
 import styles from '../components/body/body.module.css'
 import {ToDoList} from '../components/toDolist/toDoList.tsx'
@@ -11,7 +12,7 @@ function Home() {
   return (
     <>
 
-      
+        <LoginForm />
 
         <div className={styles.navegation}>
 
