@@ -56,7 +56,7 @@ nav > button {
 
 
 .loginFormBackground{
-    z-index: 3;
+    z-index: 2;
     background-color: rgba(0, 0, 0, 0.763);
     position: fixed;
     display: flex;
@@ -79,19 +79,66 @@ nav > button {
     width: 400px;
     height: 400px;
     background-color: white;
+    border: solid 2px green;
    
 }
-
 
 .loginForm > div {
 
     display: flex;
     margin: auto;
-    justify-content: center;    
+    flex-direction: column;  
+
+}
+
+.loginForm > div > div {
+    padding: 0px 20px;
+}
+
+.imagesForm {
+    z-index: 3;
    
+    margin-left: auto;  
+
+    display: flex;
     
+    justify-content: start;
+    
+    
+}
+
+.imagesForm > img {
+
+    width: 100px;
+    height: 100px; 
+
+}
+
+.inputsLoginForm {
+
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    margin-top: 35px;
+
+}
+
+.loginFormButton, .formInputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
 }
 
 
+.loginFormButton {
+
+    width: 200px;
+    height: 50px; 
+    background-color: rgb(3, 246, 3);
+    margin-top: 20px;
+    
+
+}
 
