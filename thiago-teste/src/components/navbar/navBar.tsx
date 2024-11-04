@@ -1,8 +1,49 @@
 import styles from './navBar.module.css'
 
-export function NavBar() {
+
+export function NavBar() {   
+
+    const loginFormToggleVisible = () => {
+        /*
+            a função do javascritp eval() valida a string como um comando javascript,
+            foi aqui pra que o react não de erro na proprieda .style
+        */
+        eval(`document.querySelectorAll('#loginFormBackground')[0].style.visibility = "visible"`);
+    }
+
+    const loginFormToggleHidden = () => {
+        /*
+            a função do javascritp eval() valida a string como um comando javascript,
+            foi aqui pra que o react não de erro na proprieda .style
+        */
+        eval(`document.querySelectorAll('#loginFormBackground')[0].style.visibility = "hidden"`);
+    }
+
     return(
         <>
+
+            <div id="loginFormBackground"  className={styles.loginFormBackground} onClick={loginFormToggleHidden}>
+
+                <div id="loginForm" >
+
+                    <div className={styles.loginForm}>
+                        <div>
+                            <div>email:</div>
+                            <input type="text" />
+                        </div>
+                    
+                    <div>
+                        <div>senha:</div>
+                        <input type="password" />
+                    </div>
+
+                    </div>     
+
+                </div>
+
+            </div>
+
+            
 
             <nav>
 
@@ -22,12 +63,14 @@ export function NavBar() {
                 </div>
                 
 
-                <div className={styles.navLeft}>
+                <div onClick={loginFormToggleVisible} className={styles.navLeft}>
                     <div>Entrar</div>
                 </div>
                
             
             </nav>
+
+            
 
         </>
     );

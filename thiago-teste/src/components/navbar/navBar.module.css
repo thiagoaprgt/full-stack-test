@@ -55,3 +55,43 @@ nav > button {
 
 
 
+.loginFormBackground{
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.763);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    visibility: hidden;  
+   
+}
+
+
+
+.loginForm{
+    
+    display: flex;
+    margin: auto;
+    justify-content: center;    
+    width: 400px;
+    height: 400px;
+    background-color: white;
+   
+}
+
+
+.loginForm > div {
+
+    display: flex;
+    margin: auto;
+    justify-content: center;    
+   
+    
+
+}
+
+
+
