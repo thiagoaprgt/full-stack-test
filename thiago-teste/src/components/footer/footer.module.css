@@ -1,0 +1,12 @@
+.footer {
+
+   
+   display: flex;
+    position: relative;
+   
+    margin: auto;
+
+    justify-content: center;   
+    width: 100vw;
+
+}
