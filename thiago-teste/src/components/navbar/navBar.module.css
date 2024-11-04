@@ -120,6 +120,7 @@ nav > button {
     margin: auto;
     flex-direction: column;
     margin-top: 35px;
+    width: 200px;
 
 }
 
@@ -128,13 +129,25 @@ nav > button {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 
 }
 
+.formInputs > input, .formInputs > div, .loginFormButton {
+    width: 100%;
+
+}
+
+.formInputs > input{
+    border: solid 2px rgba(187, 187, 187, 0.812);
+    border-radius: 5px;
+}
+
+
+
 
 .loginFormButton {
-
-    width: 200px;
+    
     height: 50px; 
     background-color: rgb(3, 246, 3);
     margin-top: 20px;

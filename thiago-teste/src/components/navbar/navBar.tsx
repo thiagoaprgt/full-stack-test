@@ -45,13 +45,13 @@ export function NavBar() {
                             
                         <div className={styles.inputsLoginForm}>
                             <div className={styles.formInputs}>
-                                <div>email:</div>
+                                <div>User:</div>
                                 <input type="text" />
                                 
                             </div>
 
                             <div className={styles.formInputs}>
-                                <div>senha:</div>
+                                <div>Password:</div>
                                 <input type="password" />
                             </div>
 
