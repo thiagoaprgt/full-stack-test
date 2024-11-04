@@ -155,3 +155,29 @@ nav > button {
 
 }
 
+ .closeLoginForm {
+    z-index: 4;
+    
+    width: 400px;
+    position: absolute;
+    display: flex;
+    justify-content:center;
+    align-items: end;
+
+}
+
+.closeLoginForm > span {
+    width: 40px;
+    margin: 5px;
+    cursor: default;
+
+}
+
+.closeLoginForm > span:hover {
+    background-color:  rgb(3, 246, 3);
+    color: black;
+
+}
+
+
+

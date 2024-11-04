@@ -22,12 +22,16 @@ export function NavBar() {
     return(
         <>
 
-            <div id="loginFormBackground"  className={styles.loginFormBackground} onClick={loginFormToggleHidden}>
+            <div id="loginFormBackground"  className={styles.loginFormBackground}>
 
                                  
                     
 
                 <div className={styles.loginForm}>
+
+                    <div id="closeLoginForm" className={styles.closeLoginForm} >
+                        <span onClick={loginFormToggleHidden}>Close</span>
+                    </div>
 
                     <div>
 
