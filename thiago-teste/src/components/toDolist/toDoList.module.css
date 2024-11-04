@@ -14,3 +14,21 @@ main {
     width: 100vw;
 
 }
+
+
+.doLogin {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: black;
+    color: white;
+    width: 250px;
+    text-align: center;
+    
+}
+
+.doLogin:hover {
+    color: rgb(9, 234, 9);
+    border: solid 2px rgb(9, 234, 9);
+    cursor:default
+}

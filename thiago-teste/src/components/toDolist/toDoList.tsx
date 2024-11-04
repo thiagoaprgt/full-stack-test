@@ -1,5 +1,4 @@
 import styles from './toDoList.module.css'
-// import {AppToDoList} from './appToDoList'
 
 export function ToDoList() {
     return(
@@ -19,7 +18,10 @@ export function ToDoList() {
 
                 </div>
 
-                
+
+                <div className={styles.doLogin}>
+                    Para acessar a aplicação to Do List faça o Login
+                </div>
 
 
                 
