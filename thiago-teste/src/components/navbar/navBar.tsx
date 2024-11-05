@@ -19,12 +19,30 @@ export function NavBar() {
         eval(`document.querySelectorAll('#loginFormBackground')[0].style.visibility = "hidden"`);
     }
 
+    const registerAccountFormToggleVisible = () => {
+        /*
+            a função do javascritp eval() valida a string como um comando javascript,
+            foi aqui pra que o react não de erro na proprieda .style
+        */
+        eval(`document.querySelectorAll('#loginFormBackground')[0].style.visibility = "hidden"`);
+
+        eval(`document.querySelectorAll('#registerAccountFormBackground')[0].style.visibility = "visible"`);
+    }
+
+    const registerAccountFormToggleHidden= () => {
+        /*
+            a função do javascritp eval() valida a string como um comando javascript,
+            foi aqui pra que o react não de erro na proprieda .style
+        */
+        
+
+        eval(`document.querySelectorAll('#registerAccountFormBackground')[0].style.visibility = "hidden"`);
+    }
+
     return(
         <>
 
-            <div id="loginFormBackground"  className={styles.loginFormBackground}>
-
-                                 
+            <div id="loginFormBackground"  className={styles.loginFormBackground}>                                
                     
 
                 <div className={styles.loginForm}>
@@ -59,8 +77,68 @@ export function NavBar() {
                                 <input type="password" />
                             </div>
 
-                            <div className={styles.loginFormButton}>
+                            <div id="login" className={styles.loginFormButton}>
                                 <div>Sign in</div>
+                                
+                            </div>
+
+                            <div onClick={registerAccountFormToggleVisible}  className={styles.loginFormButton}>
+                                <div id="registerAccount">Register your account</div>
+                                
+                            </div>
+
+                           
+
+                        </div>
+                
+                    
+                    </div>                   
+
+                </div>
+
+            </div>
+
+
+            <div id="registerAccountFormBackground"  className={styles.loginFormBackground}>
+
+
+                <div className={styles.loginForm}>
+
+                    <div id="closeLoginForm" className={styles.closeLoginForm} >
+                        <span onClick={registerAccountFormToggleHidden}>Close</span>
+                    </div>
+
+                   
+                    <div>
+
+                                                    
+                        <div className={styles.inputsLoginForm}>
+                            <div className={styles.formInputs}>
+                                <div  >User:</div>
+                                <input id="user" type="text" />
+                                
+                            </div>
+
+                            <div  className={styles.formInputs}>
+                                <div>Nome:</div>
+                                <input id="name" type="text" />
+                                
+                            </div>
+
+                            <div  className={styles.formInputs}>
+                                <div>Email:</div>
+                                <input id="email" type="text" />
+                                
+                            </div>
+
+                            <div className={styles.formInputs}>
+                                <div>Password:</div>
+                                <input id="password" type="password" />
+                            </div>
+                           
+
+                            <div  className={styles.loginFormButton}>
+                                <div id="registerAccount">Register your account</div>
                                 
                             </div>
 

@@ -55,7 +55,7 @@ nav > button {
 
 
 
-.loginFormBackground{
+.loginFormBackground, .registerAccountForm{
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.763);
     position: fixed;
@@ -176,8 +176,10 @@ nav > button {
 .closeLoginForm > span:hover {
     background-color:  rgb(3, 246, 3);
     color: black;
+    cursor: default;
 
 }
+
 
 
 
