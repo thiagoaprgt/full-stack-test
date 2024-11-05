@@ -1,0 +1,129 @@
+
+.loginFormBackground, .registerAccountForm{
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.763);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    visibility: hidden;  
+   
+}
+
+
+
+.loginForm{
+    
+    display: flex;
+    margin: auto;
+    justify-content: center;    
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border: solid 2px green;
+   
+}
+
+.loginForm > div {
+
+    display: flex;
+    margin: auto;
+    flex-direction: column;  
+
+}
+
+.loginForm > div > div {
+    padding: 0px 20px;
+}
+
+.imagesForm {
+    z-index: 3;
+   
+    margin-left: auto;  
+
+    display: flex;
+    
+    justify-content: start;
+    
+    
+}
+
+.imagesForm > img {
+
+    width: 100px;
+    height: 100px; 
+
+}
+
+.inputsLoginForm {
+
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    margin-top: 35px;
+    width: 200px;
+
+}
+
+.loginFormButton, .formInputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+
+.formInputs > input, .formInputs > div, .loginFormButton {
+    width: 100%;
+
+}
+
+.formInputs > input{
+    border: solid 2px rgba(187, 187, 187, 0.812);
+    border-radius: 5px;
+}
+
+
+
+
+.loginFormButton {
+    
+    height: 50px; 
+    background-color: rgb(3, 246, 3);
+    margin-top: 20px;
+    
+
+}
+
+ .closeLoginForm {
+    z-index: 4;
+    
+    width: 400px;
+    position: absolute;
+    display: flex;
+    justify-content:center;
+    align-items: end;
+
+}
+
+.closeLoginForm > span {
+    width: 40px;
+    margin: 5px;
+    cursor: default;
+
+}
+
+.closeLoginForm > span:hover {
+    background-color:  rgb(3, 246, 3);
+    color: black;
+    cursor: default;
+
+}
+
+
+
+
