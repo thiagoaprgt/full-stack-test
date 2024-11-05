@@ -26,4 +26,10 @@ api.get('/toDo/:userId', async (request, response) => {
 
 })
 
+api.post('/createUser/', async (request, response) => {    
+
+    response.json( await repositoryToDoList.createUser($data));
+
+})
+
 api.listen(8001)
