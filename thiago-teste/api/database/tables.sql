@@ -1,6 +1,7 @@
 create table users (
     id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name varchar(100) not null,
+    users varchar(100) not null,
     email varchar(100) not null unique,
     password varchar(100) not null
 );
@@ -15,6 +16,6 @@ create table taskToDoList (
 
 );
 
-INSERT INTO `users`( `name`, `email`, `password`) VALUES ('teste','teste@email','456'), ('testando','testando@email','123');
+INSERT INTO `users`( `name`, `users`, `email`, `password`) VALUES ('Thiago teste', 'teste','teste@email','456'), ('testando','testando@email','123');
 
 INSERT INTO `taskToDoList`(`title`, `description`, `user_id`) VALUES ('tarefa1','descrição1', 1) , ('tarefa2','fasfasdfas', 1);
