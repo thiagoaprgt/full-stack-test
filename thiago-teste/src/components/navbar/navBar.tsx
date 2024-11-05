@@ -39,6 +39,42 @@ export function NavBar() {
         eval(`document.querySelectorAll('#registerAccountFormBackground')[0].style.visibility = "hidden"`);
     }
 
+    const registerAccount = async () => {
+
+        let form = new FormData();
+
+        eval(`form.append("user", document.querySelectorAll('#registerUser')[0])`);
+        eval(`form.append("name", document.querySelectorAll('#registerName')[0])`);
+        eval(`form.append("email", document.querySelectorAll('#registerEmail')[0])`);
+        eval(`form.append("password", document.querySelectorAll('#registerPassword')[0])`);
+
+        
+
+        await fetch('http://localhost:8001/createUser', {
+
+            method: "POST",
+            body: form
+    
+        })
+
+        console.log(form);
+        // .then(() => {
+
+        //     registerAccountFormToggleHidden();
+        //     alert("Novo usuário criado com sucesso");
+
+        // }).catch( () => {
+        //     alert("Esse usuário ou email já existe no sistema")
+        // })
+
+        
+
+        
+    }
+
+       
+   
+
     return(
         <>
 
@@ -115,30 +151,30 @@ export function NavBar() {
                         <div className={styles.inputsLoginForm}>
                             <div className={styles.formInputs}>
                                 <div  >User:</div>
-                                <input id="user" type="text" />
+                                <input id="registerUser" type="text" />
                                 
                             </div>
 
                             <div  className={styles.formInputs}>
                                 <div>Nome:</div>
-                                <input id="name" type="text" />
+                                <input id="registerName" type="text" />
                                 
                             </div>
 
                             <div  className={styles.formInputs}>
                                 <div>Email:</div>
-                                <input id="email" type="text" />
+                                <input id="registerEmail" type="text" />
                                 
                             </div>
 
                             <div className={styles.formInputs}>
                                 <div>Password:</div>
-                                <input id="password" type="password" />
+                                <input id="registerPassword" type="password" />
                             </div>
                            
 
                             <div  className={styles.loginFormButton}>
-                                <div id="registerAccount">Register your account</div>
+                                <div onClick={registerAccount} id="registerAccount">Register your account</div>
                                 
                             </div>
 
