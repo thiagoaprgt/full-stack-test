@@ -13,22 +13,24 @@ api.use((req, res, next) => {
     next();
 });
 
-api.get('/', async (request, response) => {    
+api.get('/api', async (request, response) => {    
 
     response.json( await repositoryToDoList.getAllTask());
 
 })
 
 
-api.get('/toDo/:userId', async (request, response) => {    
+api.get('/api/toDo/:userId', async (request, response) => {    
 
     response.json( await repositoryToDoList.getAllTaskToDoByUserId(request.params.userId));
 
 })
 
-api.post('/createUser/', async (request, response) => {    
+api.post('/api/createUser', async (request, response) => {    
 
-    response.json( await repositoryToDoList.createUser($data));
+    await repositoryToDoList.createUser($request);
+
+    
 
 })
 
