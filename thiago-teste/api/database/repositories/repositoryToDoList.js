@@ -25,22 +25,39 @@ export class repositoryToDoList {
 
     static async createUser(data) {
 
-        let conn = await connection.open();
-        await conn.query(`INSERT INTO users (name, user, email, password) VALUES ('${data.name}', '${data.user}',  '${data.email}', '${data.password}')`); 
+        try {
 
+            let conn = await connection.open();
+            await conn.query(`INSERT INTO users (name, user, email, password) VALUES ('${data.name}', '${data.user}',  '${data.email}', '${data.password}')`); 
+
+            
+        } catch (error) {
+            
+            
+            return {problem : "usuário ou email duplicado"}
+            
+        }
     }
 
 
     static async findUser(data) {
 
-        let conn = await connection.open();
-        let [rows, fields] = await conn.query(`
-            SELECT * FROM users WHERE
-                email = '${data.email}' && 
-                password = '${data.password} 
-        `);  
+        try {
+
+            let conn = await connection.open();
+            let [rows, fields] = await conn.query(`
+                SELECT * FROM users WHERE
+                    user = "${data.user}" AND 
+                    password = "${data.password}" 
+            `);  
 
         return await rows;
+            
+        } catch (error) {
+               
+            return {problem : "Ocorreu um erro"}
+            
+        }
 
     }    
 

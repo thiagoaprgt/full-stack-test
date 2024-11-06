@@ -50,8 +50,23 @@ api.post('/api/createUser', async (request, response) => {
         password: request.body.password
     }   
 
+
     response.json(await repositoryToDoList.createUser(data));
 
+    
+
+})
+
+api.post('/api/doLogin', async (request, response) => {  
+
+        
+    let data = {       
+        user: request.body.user,        
+        password: request.body.password
+    } 
+
+    response.json(await repositoryToDoList.findUser(data))
+    
 })
 
 api.listen(8001)

@@ -44,11 +44,7 @@ export function LoginOrRegisterForm() {
         eval(`form.append("email", document.querySelectorAll('#registerEmail')[0].value)`);
         eval(`form.append("password", document.querySelectorAll('#registerPassword')[0].value)`);        
         
-        // headers:{
-        //     'Content-Type': 'application/x-www-form-urlencoded'
-        // }, 
-        
-        
+              
         let response = await fetch('http://127.0.0.1:8001/api/createUser', {
             method: "POST",   
             body: form
@@ -56,6 +52,24 @@ export function LoginOrRegisterForm() {
 
         console.log(await response.json());
         
+    }
+
+    let doLogin = async () => {
+        
+
+        let form = new FormData();
+
+        eval(`form.append("user", document.querySelectorAll('#doLoginUser')[0].value)`);
+        eval(`form.append("password", document.querySelectorAll('#doLoginPassword')[0].value)`);  
+        
+              
+        let response = await fetch('http://127.0.0.1:8001/api/doLogin', {
+            method: "POST",   
+            body: form
+        })
+
+        console.log(await response.json());
+
     }
 
 
@@ -90,17 +104,17 @@ export function LoginOrRegisterForm() {
                         <div className={styles.inputsLoginForm}>
                             <div className={styles.formInputs}>
                                 <div>User:</div>
-                                <input type="text" />
+                                <input id="doLoginUser" type="text" />
                                 
                             </div>
 
                             <div className={styles.formInputs}>
                                 <div>Password:</div>
-                                <input type="password" />
+                                <input id="doLoginPassword"  type="password" />
                             </div>
 
-                            <div id="login" className={styles.loginFormButton}>
-                                <div>Sign in</div>
+                            <div onClick={doLogin} id="login" className={styles.loginFormButton}>
+                                <div >Sign in</div>
                                 
                             </div>
 
