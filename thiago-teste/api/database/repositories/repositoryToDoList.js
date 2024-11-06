@@ -31,13 +31,13 @@ export class repositoryToDoList {
     }
 
 
-    static async findUser() {
+    static async findUser(data) {
 
         let conn = await connection.open();
         let [rows, fields] = await conn.query(`
             SELECT * FROM users WHERE
-                email = '${email}' && 
-                password = '${pass} 
+                email = '${data.email}' && 
+                password = '${data.password} 
         `);  
 
         return await rows;
