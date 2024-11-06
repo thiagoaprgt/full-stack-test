@@ -72,7 +72,7 @@ export function LoginOrRegisterForm() {
             return res;
         })
 
-        console.log(data[0])
+        
 
         if(data[0] != undefined) {
 
@@ -84,13 +84,13 @@ export function LoginOrRegisterForm() {
             */
             sessionStorage.setItem("userId", data[0].id);
             sessionStorage.setItem("userName", data[0].name);
-            sessionStorage.setItem("userEmail", data[0].email);            
-
-        }
-
-        if(sessionStorage.userId != undefined) {
+            sessionStorage.setItem("userEmail", data[0].email);  
+            
             window.location.replace('http://localhost:5173/AppToDoList')
+
         }
+
+       
 
     }
 
