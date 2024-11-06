@@ -1,0 +1,50 @@
+.toDoList {
+    width: 700px;
+   
+    
+    display: block;
+    justify-self: center;
+    
+    
+    border: solid 3px black;
+    cursor:default;
+
+
+}
+
+
+.taskProgress, .newTask {
+
+    width: 90%;
+    justify-self: center;
+    margin: 20px;   
+    
+    
+
+}
+
+.newTask {
+    height: 200px;
+    border: solid 2px green;
+    
+   
+}
+
+.taskProgress {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+
+.toDo, .inProgress {    
+    width: 250px;
+    height: 400px;
+    display: flex;
+    justify-self: center;
+    border: solid 2px blue;
+    margin-right: 20px;
+    
+}
