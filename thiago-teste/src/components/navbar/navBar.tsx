@@ -1,5 +1,5 @@
 import styles from './navBar.module.css'
-import { LoginOrRegisterForm } from '../forms/LoginOrRegisterForm.tsx';
+import { LoginOrRegisterForm } from '../forms/loginOrRegisterForm.tsx';
 
 
 export function NavBar() {  

@@ -23,12 +23,10 @@ export class repositoryToDoList {
     }
 
 
-    static async createUser($data) {
+    static async createUser(data) {
 
         let conn = await connection.open();
-        await conn.query(`
-            INSERT INTO users VALUES ('${data.name}', '${data.email}', '${data.password}')
-        `); 
+        await conn.query(`INSERT INTO users (name, user, email, password) VALUES ('${data.name}', '${data.user}',  '${data.email}', '${data.password}')`); 
 
     }
 

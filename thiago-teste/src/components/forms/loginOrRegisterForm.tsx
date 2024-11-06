@@ -1,5 +1,8 @@
 import styles from './loginOrRegisterForm.module.css'
 
+
+
+
 export function LoginOrRegisterForm() {
 
     
@@ -36,29 +39,22 @@ export function LoginOrRegisterForm() {
 
         let form = new FormData();
 
-        eval(`form.append("user", document.querySelectorAll('#registerUser')[0])`);
-        eval(`form.append("name", document.querySelectorAll('#registerName')[0])`);
-        eval(`form.append("email", document.querySelectorAll('#registerEmail')[0])`);
-        eval(`form.append("password", document.querySelectorAll('#registerPassword')[0])`);
-
+        eval(`form.append("user", document.querySelectorAll('#registerUser')[0].value)`);
+        eval(`form.append("name", document.querySelectorAll('#registerName')[0].value)`);
+        eval(`form.append("email", document.querySelectorAll('#registerEmail')[0].value)`);
+        eval(`form.append("password", document.querySelectorAll('#registerPassword')[0].value)`);        
         
-
-        await fetch('http://localhost:8001/createUser', {
-
-            method: "POST",
+        // headers:{
+        //     'Content-Type': 'application/x-www-form-urlencoded'
+        // }, 
+        
+        
+        let response = await fetch('http://127.0.0.1:8001/api/createUser', {
+            method: "POST",   
             body: form
-    
         })
 
-        console.log(form);
-        // .then(() => {
-
-        //     registerAccountFormToggleHidden();
-        //     alert("Novo usuário criado com sucesso");
-
-        // }).catch( () => {
-        //     alert("Esse usuário ou email já existe no sistema")
-        // })
+        console.log(await response.json());
         
     }
 
