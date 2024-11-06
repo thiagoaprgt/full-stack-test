@@ -66,6 +66,10 @@ api.post('/api/doLogin', async (request, response) => {
     } 
 
     response.json(await repositoryToDoList.findUser(data))
+
+    if(sessionStorage.userId != undefined) {
+        window.location.replace('http://localhost:5173/AppToDoList')
+    }
     
 })
 
