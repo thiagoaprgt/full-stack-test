@@ -68,7 +68,25 @@ export function LoginOrRegisterForm() {
             body: form
         })
 
-        console.log(await response.json());
+        let data = await response.json().then((res) => {
+            return res;
+        })
+
+        console.log(data[0])
+
+        if(data[0] != undefined) {
+
+            /*
+             as informações da session storage ficam armazenadas no
+             computador do usuário até ele fechar a aba do navegador ou deslogar no site.
+             Não se deve armazenar as senhas nem qualquer outra informação que traga problema ao 
+             usuário, pois alguém mal intecionado pode usá-las
+            */
+            sessionStorage.setItem("userId", data[0].id);
+            sessionStorage.setItem("userName", data[0].name);
+            sessionStorage.setItem("userEmail", data[0].email);            
+
+        }
 
     }
 
