@@ -49,7 +49,7 @@ export function AppToDoListPage() {
 
                         <div className={styles.formInputs}>
                             <div>Descrição:</div>
-                            <input id="taskDescription"  type="password" />
+                            <input id="taskDescription"  type="text" />
                         </div>
 
                         <div onClick={addNewTaskToDo} id="addNewTaskToDo" className={styles.addNewTaskToDoButton}>
