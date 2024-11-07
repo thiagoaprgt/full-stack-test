@@ -40,6 +40,7 @@
     flex-direction: row;
     justify-content: center;
     
+    
 }
 
 
@@ -47,23 +48,41 @@
     width: 250px;
     height: 80vh;
     display: flex;
+    flex-direction: column;
     justify-self: center;
     border: solid 2px blue;
     margin-right: 20px;
     
+    
 }
 
-.toDo > p, .inProgress > p {
+.toDo > p, .inProgress > p, .toDoTasks {
 
-    /* border: solid 2px black; */
+   
     width: 100%;
     height: 40px;
     
     text-align: center;
     margin: 10px 10px 20px 10px;
     display: flex;
-    flex-direction: column;
-    justify-self: center;
+    flex-direction: column;   
+    align-items: center;
+
+}
+
+.toDoTasks, .inProgressTasks {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+
+.toDoTasks > div, .inProgressTasks > div {
+    
+    border: solid 1px black;
+    margin-bottom: 10px;
+    padding: 10px;
+    
+
 
 }
 
@@ -138,9 +157,13 @@
     color: black;
     margin: 10px;
     padding: 5px;
+    
+    
 }
 
 .addNewTaskToDoButton:hover {
     border: solid 2px black;
     border-radius: 5px;
 }
+
+

@@ -1,3 +1,4 @@
+import { createElement } from 'react';
 import styles from './appToDoListPage.module.css'
 
 
@@ -26,6 +27,94 @@ export function AppToDoListPage() {
     let addNewTaskToDo = async () => {
 
     }
+
+    let makeToDoElement = async () => {
+
+        let toDo = document.createElement('div');
+        toDo.setAttribute('id', 'toDoTasks');
+        toDo.setAttribute('class', 'toDoTasks')
+
+        let divParent = document.createElement('div');
+
+        let divChildTitle = document.createElement('div');
+
+        let strongTitle = document.createElement('strong');
+        strongTitle.innerHTML = 'Título';
+
+        let spanTitle = document.createElement('span');
+        spanTitle.innerHTML = '{{title}}';
+
+        divChildTitle.appendChild(strongTitle);
+        divChildTitle.appendChild(spanTitle);
+
+
+        let divChildDescription = document.createElement('div');
+
+        let strongDescription = document.createElement('strong');
+        strongDescription.innerHTML = 'Descrição';
+
+        let spanDescription = document.createElement('span');
+        spanDescription.innerHTML = '{{Description}}';
+
+        divChildDescription.appendChild(strongDescription);
+        divChildDescription.appendChild(spanDescription);
+
+        divParent.appendChild(divChildTitle);
+        divParent.appendChild(divChildDescription);
+
+        toDo.appendChild(divParent);
+
+        let toDoTasks = document.querySelectorAll('#toDoTasks')[0];
+
+
+        toDoTasks.insertAdjacentElement('beforeend', toDo);
+
+    }
+
+    let makeInProgressElement = async () => {
+
+        let toDo = document.createElement('div');
+        toDo.setAttribute('id', 'toDoTasks');
+        toDo.setAttribute('class', 'toDoTasks')
+
+        let divParent = document.createElement('div');
+
+        let divChildTitle = document.createElement('div');
+
+        let strongTitle = document.createElement('strong');
+        strongTitle.innerHTML = 'Título:';
+
+        let spanTitle = document.createElement('span');
+        spanTitle.innerHTML = '{{title}}';
+
+        divChildTitle.appendChild(strongTitle);
+        divChildTitle.appendChild(spanTitle);
+
+
+        let divChildDescription = document.createElement('div');
+
+        let strongDescription = document.createElement('strong');
+        strongDescription.innerHTML = 'Descrição:';
+
+        let spanDescription = document.createElement('span');
+        spanDescription.innerHTML = '{{Description}}';
+
+        divChildDescription.appendChild(strongDescription);
+        divChildDescription.appendChild(spanDescription);
+
+        divParent.appendChild(divChildTitle);
+        divParent.appendChild(divChildDescription);
+
+        toDo.appendChild(divParent);
+
+        let toDoTasks = document.querySelectorAll('#inProgressTasks')[0];
+
+
+        toDoTasks.insertAdjacentElement('beforeend', toDo);
+
+    }
+
+   
 
     return(
         <>
@@ -81,9 +170,15 @@ export function AppToDoListPage() {
                         <p>
                             <span>To Do</span>
 
-                            <span onClick={createNewTaskForm} className={styles.addNewTaskToDoButton}>Criar nova tarefa</span>
+                            <span onClick={makeToDoElement} className={styles.addNewTaskToDoButton}>Criar nova tarefa</span>
                             
                         </p>
+
+                        <div id="toDoTasks" className={styles.toDoTasks}>
+
+                          
+
+                        </div>
 
                         
 
@@ -94,6 +189,12 @@ export function AppToDoListPage() {
                         <p>
                             In Progress
                         </p>
+
+                        <div id="inProgressTasks" className={styles.toDoTasks}>
+
+                          
+
+                        </div>
 
                     </div>
 
