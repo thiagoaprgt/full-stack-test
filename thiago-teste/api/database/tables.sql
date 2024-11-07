@@ -28,4 +28,4 @@ INSERT INTO `users`( `name`, `user`, `email`, `password`) VALUES ('Thiago teste'
 
 INSERT INTO `taskProgress` (`name`) VALUES ('toDo'), ('inProgress'), ('Done');
 
-INSERT INTO `taskToDoList`(`title`, `description`, `user_id`, `taskProgress_id`) VALUES ('tarefa1','descrição1', 1, 1) , ('tarefa2','fasfasdfas', 1, 2);
+INSERT INTO `taskToDoList`(`title`, `description`, `user_id`, `taskProgress_id`) VALUES ('tarefa1','descrição1', 1, 1), ('tarefa2','descriçãoABC', 1, 1) , ('tarefa2','fasfasdfas', 1, 2), ('tarefa0','descrição0', 1, 3);

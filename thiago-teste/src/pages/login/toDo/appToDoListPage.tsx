@@ -159,9 +159,9 @@ export function AppToDoListPage() {
 
     let makeDoneElement = (data:any) => {
 
-        let Done = document.createElement('div');
-        Done.setAttribute('id', 'DoneTasks');
-        Done.setAttribute('class', 'DoneTasks')
+        let done = document.createElement('div');
+        done.setAttribute('id', 'doneTasks');
+        done.setAttribute('class', 'doneTasks')
 
         let divParent = document.createElement('div');
 
@@ -191,17 +191,17 @@ export function AppToDoListPage() {
         divParent.appendChild(divChildTitle);
         divParent.appendChild(divChildDescription);
 
-        Done.appendChild(divParent);
+        done.appendChild(divParent);
         
 
-        return Done;
+        return done;
         
 
     }
 
     let allTasksDoneColumnOfUser = async () => {
         
-        let response = await fetch('http://127.0.0.1:8001/api/Done/' + sessionStorage.userId, {
+        let response = await fetch('http://127.0.0.1:8001/api/done/' + sessionStorage.userId, {
             method : "GET"
         });
 
@@ -209,8 +209,8 @@ export function AppToDoListPage() {
 
         await db.map(async (task:any) => {
             
-            let Done:any = makeInProgressElement(task);
-            let DoneTasksColumns = document.querySelectorAll('#DoneTasks')[0];            
+            let Done:any = makeDoneElement(task);            
+            let DoneTasksColumns = document.querySelectorAll('#doneTasks')[0];            
 
             DoneTasksColumns.insertAdjacentElement('beforeend', Done);
 
@@ -316,7 +316,7 @@ export function AppToDoListPage() {
                             Done
                         </p>
 
-                        <div id="DoneTasks" className={styles.toDoTasks}>
+                        <div id="doneTasks" className={styles.toDoTasks}>
 
                           
 

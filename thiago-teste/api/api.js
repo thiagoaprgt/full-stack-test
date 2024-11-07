@@ -63,7 +63,7 @@ api.get('/api/inProgress/:userId', async (request, response) => {
 
 })
 
-api.get('/api/toDo/:userId', async (request, response) => {    
+api.get('/api/done/:userId', async (request, response) => {    
 
     try {
 
