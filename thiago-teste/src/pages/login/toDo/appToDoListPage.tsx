@@ -138,7 +138,7 @@ export function AppToDoListPage() {
 
                         <div className={styles.formInputs}>
                             <div>Descrição:</div>
-                            <input id="taskDescription"  type="text" />
+                            <textarea id="taskDescription" rows={5} cols={40} />
                         </div>
 
                         <div onClick={addNewTaskToDo} id="addNewTaskToDo" className={styles.addNewTaskToDoButton}>
@@ -170,7 +170,7 @@ export function AppToDoListPage() {
                         <p>
                             <span>To Do</span>
 
-                            <span onClick={makeToDoElement} className={styles.addNewTaskToDoButton}>Criar nova tarefa</span>
+                            <span onClick={createNewTaskForm} className={styles.addNewTaskToDoButton}>Criar nova tarefa</span>
                             
                         </p>
 
