@@ -49,7 +49,22 @@ export function AppToDoListPage() {
 
         let divParent = document.createElement('div');
 
-        let divChildTitle = document.createElement('div');
+
+        let divId = document.createElement('div');
+
+        let strongTaskId = document.createElement('strong');
+        strongTaskId.innerHTML = 'ID:';
+
+        let spanTaskId = document.createElement('span');
+        spanTaskId.innerHTML = data.id;
+
+        divId.appendChild(strongTaskId);
+        divId.appendChild(spanTaskId);
+
+
+
+
+        let divChildTitle = document.createElement('div');  
 
         let strongTitle = document.createElement('strong');
         strongTitle.innerHTML = 'Título';
@@ -59,6 +74,8 @@ export function AppToDoListPage() {
 
         divChildTitle.appendChild(strongTitle);
         divChildTitle.appendChild(spanTitle);
+
+
 
 
         let divChildDescription = document.createElement('div');
@@ -72,8 +89,11 @@ export function AppToDoListPage() {
         divChildDescription.appendChild(strongDescription);
         divChildDescription.appendChild(spanDescription);
 
+
+        divParent.appendChild(divId);
         divParent.appendChild(divChildTitle);
         divParent.appendChild(divChildDescription);
+        
 
         toDo.appendChild(divParent);
 
@@ -243,12 +263,14 @@ export function AppToDoListPage() {
 
         let form = new FormData();
 
-        eval(`form.append("taskProgress_id", 1`);
-        eval(`form.append("user", document.querySelectorAll('#updateTaskToDoTitle')[0].value)`);
-        eval(`form.append("password", document.querySelectorAll('#updateTaskToDoDescription')[0].value)`);  
+        eval(`form.append("id", "?"`);
+        eval(`form.append("title", document.querySelectorAll('#updateTaskToDoTitle')[0].value)`);
+        eval(`form.append("description", document.querySelectorAll('#updateTaskToDoDescription')[0].value)`); 
+        eval(`form.append("taskProgress_id", 1`); 
+        eval(`form.append("taskProgress_id", sessionStorage.userId`); 
         
               
-        let response = await fetch('http://127.0.0.1:8001/', {
+        let response = await fetch('http://127.0.0.1:8001/api/updateToDoTask', {
             method: "POST",   
             body: form
         })

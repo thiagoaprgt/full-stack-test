@@ -77,6 +77,24 @@ api.get('/api/done/:userId', async (request, response) => {
 
 })
 
+api.post('/api/updateToDoTask', async (request, response) => {  
+    
+    let data = {
+        id: request.body.id,
+        title: request.body.title,
+        description: request.body.description,
+        taskProgress_id: 1,
+        user_id: request.body.user_id
+        
+    }   
+
+
+    response.json(await repositoryToDoList.createUser(data));
+
+    
+
+})
+
 api.post('/api/createUser', async (request, response) => {  
     
     let data = {
