@@ -26,6 +26,6 @@ create table taskToDoList (
 
 INSERT INTO `users`( `name`, `user`, `email`, `password`) VALUES ('Thiago teste', 'teste', 'teste@email','456'), ('Carla', 'testando', 'testando@email','123');
 
-INSERT INTO `taskProgress` (`name`) VALUES ('toDo'), ('inProgres');
+INSERT INTO `taskProgress` (`name`) VALUES ('toDo'), ('inProgres'), ('Done');
 
 INSERT INTO `taskToDoList`(`title`, `description`, `user_id`, `taskProgress_id`) VALUES ('tarefa1','descrição1', 1, 1) , ('tarefa2','fasfasdfas', 1, 2);
