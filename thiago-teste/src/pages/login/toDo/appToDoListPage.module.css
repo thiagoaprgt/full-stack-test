@@ -131,3 +131,16 @@
     justify-self: center;
     margin: auto;
 }
+
+
+.addNewTaskToDoButton {
+    background-color: rgb(3, 246, 3);
+    color: black;
+    margin: 10px;
+    padding: 5px;
+}
+
+.addNewTaskToDoButton:hover {
+    border: solid 2px black;
+    border-radius: 5px;
+}

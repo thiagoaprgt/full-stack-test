@@ -13,6 +13,16 @@ export function AppToDoListPage() {
 
     }
 
+    let createNewTaskForm = async () => {
+
+           /*
+            a função do javascritp eval() valida a string como um comando javascript,
+            foi aqui pra que o react não de erro na proprieda .style
+        */
+            eval(`document.querySelectorAll('#createTaskToDoFormBackground')[0].style.visibility = "visible"`);
+
+    }
+
     let addNewTaskToDo = async () => {
 
     }
@@ -32,13 +42,13 @@ export function AppToDoListPage() {
                     <div className={styles.inputsCreateTaskToDoForm}>
                         
                         <div className={styles.formInputs}>
-                            <div>Título da nova tarefa:</div>
+                            <div>Título:</div>
                             <input id="taskTitle" type="text" />
                             
                         </div>
 
                         <div className={styles.formInputs}>
-                            <div>Descrição da nova tarefa:</div>
+                            <div>Descrição:</div>
                             <input id="taskDescription"  type="password" />
                         </div>
 
@@ -70,6 +80,8 @@ export function AppToDoListPage() {
 
                         <p>
                             <span>To Do</span>
+
+                            <span onClick={createNewTaskForm} className={styles.addNewTaskToDoButton}>Criar nova tarefa</span>
                             
                         </p>
 
