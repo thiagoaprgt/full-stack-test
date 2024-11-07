@@ -28,7 +28,7 @@ export function AppToDoListPage() {
 
     }
 
-    let makeToDoElement = async () => {
+    let makeToDoElement = async (data:any) => {
 
         let toDo = document.createElement('div');
         toDo.setAttribute('id', 'toDoTasks');
@@ -42,7 +42,7 @@ export function AppToDoListPage() {
         strongTitle.innerHTML = 'Título';
 
         let spanTitle = document.createElement('span');
-        spanTitle.innerHTML = '{{title}}';
+        spanTitle.innerHTML = data.title;
 
         divChildTitle.appendChild(strongTitle);
         divChildTitle.appendChild(spanTitle);
@@ -54,7 +54,7 @@ export function AppToDoListPage() {
         strongDescription.innerHTML = 'Descrição';
 
         let spanDescription = document.createElement('span');
-        spanDescription.innerHTML = '{{Description}}';
+        spanDescription.innerHTML = data.description;
 
         divChildDescription.appendChild(strongDescription);
         divChildDescription.appendChild(spanDescription);
@@ -71,7 +71,7 @@ export function AppToDoListPage() {
 
     }
 
-    let makeInProgressElement = async () => {
+    let makeInProgressElement = async (data:any) => {
 
         let toDo = document.createElement('div');
         toDo.setAttribute('id', 'toDoTasks');
@@ -85,7 +85,7 @@ export function AppToDoListPage() {
         strongTitle.innerHTML = 'Título:';
 
         let spanTitle = document.createElement('span');
-        spanTitle.innerHTML = '{{title}}';
+        spanTitle.innerHTML = data.title;
 
         divChildTitle.appendChild(strongTitle);
         divChildTitle.appendChild(spanTitle);
@@ -97,7 +97,7 @@ export function AppToDoListPage() {
         strongDescription.innerHTML = 'Descrição:';
 
         let spanDescription = document.createElement('span');
-        spanDescription.innerHTML = '{{Description}}';
+        spanDescription.innerHTML = data.description;
 
         divChildDescription.appendChild(strongDescription);
         divChildDescription.appendChild(spanDescription);
