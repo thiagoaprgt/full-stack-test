@@ -4,7 +4,6 @@
 #lista as redes docker: docker network ls
 #ver os containers que estão dentro de uma rede: docker network inspect (nome da rede)
 
-version: "3.7"
 
 services:
   
