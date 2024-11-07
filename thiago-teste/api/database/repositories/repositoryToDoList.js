@@ -77,7 +77,24 @@ export class repositoryToDoList {
             
         }
 
-    }    
+    }   
+    
+    
+    static async updateTask(data) {
+
+        try {
+
+            let conn = await connection.open();
+            await conn.query(`UPDATE taskToDoList SET id = ${data.id}, title = ${data.title}, description = ${data.description}, taskProgress_id = ${data.taskProgress_id}, user_id = ${data.user_id}`); 
+
+            
+        } catch (error) {
+            
+            
+            return {problem : "Ocorreu um problena"}
+            
+        }
+    }
 
     
 
