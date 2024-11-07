@@ -2,6 +2,7 @@ import { createElement } from 'react';
 import styles from './appToDoListPage.module.css'
 
 
+
 export function AppToDoListPage() {
 
     let closetoTaskForm = async () => {
@@ -11,6 +12,18 @@ export function AppToDoListPage() {
             foi aqui pra que o react não de erro na proprieda .style
         */
             eval(`document.querySelectorAll('#createTaskToDoFormBackground')[0].style.visibility = "hidden"`);
+
+    }
+
+    let closeUpdateToDoTaskForm = () => {
+
+        /*
+            a função do javascritp eval() valida a string como um comando javascript,
+            foi aqui pra que o react não de erro na proprieda .style
+        */
+            eval(`document.querySelectorAll('#updateTaskToDoFormBackground')[0].style.visibility = "hidden"`);
+            eval(`document.querySelectorAll('#updateTaskInProgressFormBackground')[0].style.visibility = "hidden"`);
+            eval(`document.querySelectorAll('#updateTaskDoneFormBackground')[0].style.visibility = "hidden"`);
 
     }
 
@@ -81,6 +94,7 @@ export function AppToDoListPage() {
         await db.map(async (task:any) => {
             
             let toDo:any = makeToDoElement(task);
+            toDo.addEventListener("dblclick", updateTaskToDo)
             let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];            
 
             toDoTasksColumns.insertAdjacentElement('beforeend', toDo);
@@ -145,7 +159,8 @@ export function AppToDoListPage() {
 
         await db.map(async (task:any) => {
             
-            let InProgress:any = makeInProgressElement(task);
+            let InProgress = makeInProgressElement(task);
+            InProgress.addEventListener("dblclick", updateTaskInProgress)
             let InProgressTasksColumns = document.querySelectorAll('#inProgressTasks')[0];            
 
             InProgressTasksColumns.insertAdjacentElement('beforeend', InProgress);
@@ -209,7 +224,8 @@ export function AppToDoListPage() {
 
         await db.map(async (task:any) => {
             
-            let Done:any = makeDoneElement(task);            
+            let Done:any = makeDoneElement(task);  
+            Done.addEventListener("dblclick", updateTaskDone)          
             let DoneTasksColumns = document.querySelectorAll('#doneTasks')[0];            
 
             DoneTasksColumns.insertAdjacentElement('beforeend', Done);
@@ -218,6 +234,73 @@ export function AppToDoListPage() {
 
         
 
+    }
+
+
+    let updateTaskToDo = async () => {
+
+        eval(`document.querySelectorAll('#updateTaskToDoFormBackground')[0].style.visibility = "visible"`);
+
+        let form = new FormData();
+
+        eval(`form.append("taskProgress_id", 1`);
+        eval(`form.append("user", document.querySelectorAll('#updateTaskToDoTitle')[0].value)`);
+        eval(`form.append("password", document.querySelectorAll('#updateTaskToDoDescription')[0].value)`);  
+        
+              
+        let response = await fetch('http://127.0.0.1:8001/', {
+            method: "POST",   
+            body: form
+        })
+
+        let data = await response.json().then((res) => {
+            return res;
+        })
+        
+    }
+
+    let updateTaskInProgress = async () => {
+
+        eval(`document.querySelectorAll('#updateTaskInProgressFormBackground')[0].style.visibility = "visible"`);
+
+        let form = new FormData();
+
+        eval(`form.append("taskProgress_id", 2`);
+        eval(`form.append("user", document.querySelectorAll('#updateTaskInProgressTitle')[0].value)`);
+        eval(`form.append("password", document.querySelectorAll('#updateTaskInProgressDescription')[0].value)`);  
+        
+              
+        let response = await fetch('http://127.0.0.1:8001/', {
+            method: "POST",   
+            body: form
+        })
+
+        let data = await response.json().then((res) => {
+            return res;
+        })
+        
+    }
+
+    let updateTaskDone = async () => {
+
+        eval(`document.querySelectorAll('#updateTaskDoneFormBackground')[0].style.visibility = "visible"`);
+
+        let form = new FormData();
+
+        eval(`form.append("taskProgress_id", 3`);
+        eval(`form.append("user", document.querySelectorAll('#updateTaskDoneTitle')[0].value)`);
+        eval(`form.append("password", document.querySelectorAll('#updateTaskDoneDescription')[0].value)`);  
+        
+              
+        let response = await fetch('http://127.0.0.1:8001/', {
+            method: "POST",   
+            body: form
+        })
+
+        let data = await response.json().then((res) => {
+            return res;
+        })
+        
     }
 
 
@@ -262,8 +345,106 @@ export function AppToDoListPage() {
 
                 </div>                
 
-            </div>
+            </div>            
             
+            <div id="updateTaskToDoFormBackground" className={styles.createTaskToDoFormBackground}>
+
+                <div className={styles.createTaskToDoForm}>
+
+                    <div className={styles.closetoTaskForm} >
+                        <span onClick={closeUpdateToDoTaskForm}>Close</span>
+                    </div>
+
+                    <div className={styles.inputsCreateTaskToDoForm}>                        
+                        
+                        <div className={styles.formInputs}>
+                            <div>Título:</div>
+                            <input id="updateTaskToDoTitle" type="text" />
+                            
+                        </div>
+
+                        <div className={styles.formInputs}>
+                            <div>Descrição:</div>
+                            <textarea id="updateTaskToDoDescription" rows={5} cols={40} />
+                        </div>
+
+                        <div onClick={updateTaskToDo} id="updateTaskToDo" className={styles.addNewTaskToDoButton}>
+
+                            <div >Atualizar a tarefa</div>
+                            
+                        </div> 
+
+                    </div>
+
+                </div>                
+
+            </div>
+
+            <div id="updateTaskInProgressFormBackground" className={styles.createTaskToDoFormBackground}>
+
+                <div className={styles.createTaskToDoForm}>
+
+                    <div className={styles.closetoTaskForm} >
+                        <span onClick={closeUpdateToDoTaskForm}>Close</span>
+                    </div>
+
+                    <div className={styles.inputsCreateTaskToDoForm}>                        
+                        
+                        <div className={styles.formInputs}>
+                            <div>Título:</div>
+                            <input id="updateTaskInProgressTitle" type="text" />
+                            
+                        </div>
+
+                        <div className={styles.formInputs}>
+                            <div>Descrição:</div>
+                            <textarea id="updateTaskInProgressDescription" rows={5} cols={40} />
+                        </div>
+
+                        <div onClick={updateTaskInProgress} id="updateTaskInProgress" className={styles.addNewTaskToDoButton}>
+
+                            <div >Atualizar a tarefa</div>
+                            
+                        </div> 
+
+                    </div>
+
+                </div>                
+
+            </div>
+
+            <div id="updateTaskDoneFormBackground" className={styles.createTaskToDoFormBackground}>
+
+                <div className={styles.createTaskToDoForm}>
+
+                    <div className={styles.closetoTaskForm} >
+                        <span onClick={closeUpdateToDoTaskForm}>Close</span>
+                    </div>
+
+                    <div className={styles.inputsCreateTaskToDoForm}>                        
+                        
+                        <div className={styles.formInputs}>
+                            <div>Título:</div>
+                            <input id="updateTaskDoneTitle" type="text" />
+                            
+                        </div>
+
+                        <div className={styles.formInputs}>
+                            <div>Descrição:</div>
+                            <textarea id="updateTaskDoneDescription" rows={5} cols={40} />
+                        </div>
+
+                        <div onClick={updateTaskDone} id="updateTaskDone" className={styles.addNewTaskToDoButton}>
+
+                            <div >Atualizar a tarefa</div>
+                            
+                        </div> 
+
+                    </div>
+
+                </div>                
+
+            </div>
 
 
             <div className={styles.toDoList}>
