@@ -28,7 +28,7 @@ export function AppToDoListPage() {
 
     }
 
-    let makeToDoElement = async (data:any) => {
+    let makeToDoElement = (data:any) => {
 
         let toDo = document.createElement('div');
         toDo.setAttribute('id', 'toDoTasks');
@@ -64,18 +64,40 @@ export function AppToDoListPage() {
 
         toDo.appendChild(divParent);
 
-        let toDoTasks = document.querySelectorAll('#toDoTasks')[0];
+        return toDo;
 
-
-        toDoTasks.insertAdjacentElement('beforeend', toDo);
+        
 
     }
 
-    let makeInProgressElement = async (data:any) => {
+    let allTasksToDoColumnOfUser = async () => {
+        
+        let response = await fetch('http://127.0.0.1:8001/api/toDo/' + sessionStorage.userId, {
+            method : "GET"
+        });
 
-        let toDo = document.createElement('div');
-        toDo.setAttribute('id', 'toDoTasks');
-        toDo.setAttribute('class', 'toDoTasks')
+        let db = await response.json();
+
+        await db.map(async (task:any) => {
+            
+            let toDo:any = makeToDoElement(task);
+            let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];            
+
+            toDoTasksColumns.insertAdjacentElement('beforeend', toDo);
+
+        });   
+
+        
+
+    }
+
+    
+
+    let makeInProgressElement = (data:any) => {
+
+        let inProgress = document.createElement('div');
+        inProgress.setAttribute('id', 'inProgressTasks');
+        inProgress.setAttribute('class', 'inProgressTasks')
 
         let divParent = document.createElement('div');
 
@@ -105,16 +127,105 @@ export function AppToDoListPage() {
         divParent.appendChild(divChildTitle);
         divParent.appendChild(divChildDescription);
 
-        toDo.appendChild(divParent);
+        inProgress.appendChild(divParent);
+        
 
-        let toDoTasks = document.querySelectorAll('#inProgressTasks')[0];
-
-
-        toDoTasks.insertAdjacentElement('beforeend', toDo);
+        return inProgress;
+        
 
     }
 
+    let allTasksInProgressColumnOfUser = async () => {
+        
+        let response = await fetch('http://127.0.0.1:8001/api/inProgress/' + sessionStorage.userId, {
+            method : "GET"
+        });
+
+        let db = await response.json();
+
+        await db.map(async (task:any) => {
+            
+            let InProgress:any = makeInProgressElement(task);
+            let InProgressTasksColumns = document.querySelectorAll('#inProgressTasks')[0];            
+
+            InProgressTasksColumns.insertAdjacentElement('beforeend', InProgress);
+
+        });   
+
+        
+
+    }
+
+
+    let makeDoneElement = (data:any) => {
+
+        let Done = document.createElement('div');
+        Done.setAttribute('id', 'DoneTasks');
+        Done.setAttribute('class', 'DoneTasks')
+
+        let divParent = document.createElement('div');
+
+        let divChildTitle = document.createElement('div');
+
+        let strongTitle = document.createElement('strong');
+        strongTitle.innerHTML = 'Título:';
+
+        let spanTitle = document.createElement('span');
+        spanTitle.innerHTML = data.title;
+
+        divChildTitle.appendChild(strongTitle);
+        divChildTitle.appendChild(spanTitle);
+
+
+        let divChildDescription = document.createElement('div');
+
+        let strongDescription = document.createElement('strong');
+        strongDescription.innerHTML = 'Descrição:';
+
+        let spanDescription = document.createElement('span');
+        spanDescription.innerHTML = data.description;
+
+        divChildDescription.appendChild(strongDescription);
+        divChildDescription.appendChild(spanDescription);
+
+        divParent.appendChild(divChildTitle);
+        divParent.appendChild(divChildDescription);
+
+        Done.appendChild(divParent);
+        
+
+        return Done;
+        
+
+    }
+
+    let allTasksDoneColumnOfUser = async () => {
+        
+        let response = await fetch('http://127.0.0.1:8001/api/Done/' + sessionStorage.userId, {
+            method : "GET"
+        });
+
+        let db = await response.json();
+
+        await db.map(async (task:any) => {
+            
+            let Done:any = makeInProgressElement(task);
+            let DoneTasksColumns = document.querySelectorAll('#DoneTasks')[0];            
+
+            DoneTasksColumns.insertAdjacentElement('beforeend', Done);
+
+        });   
+
+        
+
+    }
+
+
    
+
+    allTasksToDoColumnOfUser();
+    allTasksInProgressColumnOfUser();
+    allTasksDoneColumnOfUser();
 
     return(
         <>
@@ -176,7 +287,7 @@ export function AppToDoListPage() {
 
                         <div id="toDoTasks" className={styles.toDoTasks}>
 
-                          
+                            
 
                         </div>
 
@@ -191,6 +302,21 @@ export function AppToDoListPage() {
                         </p>
 
                         <div id="inProgressTasks" className={styles.toDoTasks}>
+
+                          
+
+                        </div>
+
+                    </div>
+
+                    
+                    <div id="Done" className={styles.inProgress}>
+
+                        <p>
+                            Done
+                        </p>
+
+                        <div id="DoneTasks" className={styles.toDoTasks}>
 
                           
 
