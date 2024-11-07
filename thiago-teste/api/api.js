@@ -37,7 +37,43 @@ api.get('/api', async (request, response) => {
 
 api.get('/api/toDo/:userId', async (request, response) => {    
 
-    response.json( await repositoryToDoList.getAllTaskToDoByUserId(request.params.userId));
+    try {
+
+        response.json( await repositoryToDoList.getAllTaskToDoByUserId(request.params.userId));
+        
+    } catch (error) {
+
+        return {problem: "Ocorreu um problema"}
+        
+    }
+
+})
+
+api.get('/api/inProgress/:userId', async (request, response) => {    
+
+    try {
+
+        response.json( await repositoryToDoList.getAllTaskInProgressByUserId(request.params.userId));
+        
+    } catch (error) {
+
+        return {problem: "Ocorreu um problema"}
+        
+    }
+
+})
+
+api.get('/api/toDo/:userId', async (request, response) => {    
+
+    try {
+
+        response.json( await repositoryToDoList.getAllTaskDoneByUserId(request.params.userId));
+        
+    } catch (error) {
+
+        return {problem: "Ocorreu um problema"}
+        
+    }
 
 })
 
