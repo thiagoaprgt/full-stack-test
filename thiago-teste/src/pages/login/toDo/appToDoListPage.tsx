@@ -412,19 +412,40 @@ export function AppToDoListPage() {
         
         console.log("dragged Drop");
 
-        console.log(event.target);
+        console.log(event.target.getAttribute('id'));
 
        
 
-        // if(
-        //     event.target.querySelectorAll('#toDoTasks')[0].getAttributeNode('id').value == "toDoTasks"
-        //     || event.target.parentNode.parentNode.querySelectorAll('#toDoTasks')[0].getAttributeNode('id').value == "toDoTasks"
-        // ) {
+        if(
+            event.target.getAttribute('id') == "toDoTasks"
+            || event.target.parentNode.parentNode.getAttribute('id') == "toDoTasks"
+        ) {
 
-        //     let tasksColumns = document.querySelectorAll('#toDoTasks')[0];
-        //     tasksColumns.insertAdjacentElement('beforeend', draggedElement);
+            let tasksColumns = document.querySelectorAll('#toDoTasks')[0];
+            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
 
-        // }
+        }
+
+
+        if(
+            event.target.getAttribute('id') == "inProgressTasks"
+            || event.target.parentNode.parentNode.getAttribute('id') == "inProgressTasks"
+        ) {
+
+            let tasksColumns = document.querySelectorAll('#inProgressTasks')[0];
+            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
+
+        }
+
+        if(
+            event.target.getAttribute('id') == "doneTasks"
+            || event.target.parentNode.parentNode.getAttribute('id') == "doneTasks"
+        ) {
+
+            let tasksColumns = document.querySelectorAll('#doneTasks')[0];
+            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
+
+        }
 
 
        
