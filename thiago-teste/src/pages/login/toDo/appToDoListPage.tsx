@@ -46,6 +46,7 @@ export function AppToDoListPage() {
         let toDo = document.createElement('div');
         toDo.setAttribute('id', 'toDoTasks');
         toDo.setAttribute('class', 'toDoTasks')
+        toDo.setAttribute('draggable', 'true')
 
         let divParent = document.createElement('div');
 
@@ -115,6 +116,7 @@ export function AppToDoListPage() {
             
             let toDo:any = makeToDoElement(task);
             toDo.addEventListener("dblclick", updateTaskToDo)
+            toDo.addEventListener("draon", console.log('Dragged'))
             let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];            
 
             toDoTasksColumns.insertAdjacentElement('beforeend', toDo);
@@ -131,7 +133,8 @@ export function AppToDoListPage() {
 
         let inProgress = document.createElement('div');
         inProgress.setAttribute('id', 'inProgressTasks');
-        inProgress.setAttribute('class', 'inProgressTasks')
+        inProgress.setAttribute('class', 'inProgressTasks');
+        inProgress.setAttribute('draggable', 'true')
 
         let divParent = document.createElement('div');
 
@@ -211,7 +214,8 @@ export function AppToDoListPage() {
 
         let done = document.createElement('div');
         done.setAttribute('id', 'doneTasks');
-        done.setAttribute('class', 'doneTasks')
+        done.setAttribute('class', 'doneTasks');
+        done.setAttribute('draggable', 'true');
 
         let divParent = document.createElement('div');
 
