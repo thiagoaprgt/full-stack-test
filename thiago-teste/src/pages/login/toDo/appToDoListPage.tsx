@@ -39,6 +39,28 @@ export function AppToDoListPage() {
 
     let addNewTaskToDo = async () => {
 
+        let data:any = {
+            title: eval(`document.querySelectorAll("#newTaskTitle")[0].value`),
+            description: eval(`document.querySelectorAll("#newTaskDescription")[0].value`)
+        }
+
+
+        let toDo:any = makeToDoElement(data);
+
+        toDo.addEventListener("dblclick", updateTaskToDo);
+
+        toDo.addEventListener("dragstart", dragStart);           
+        toDo.addEventListener("dragleave", dragLeave);
+
+        let taskProgress = document.querySelectorAll('#toDo')[0];
+        taskProgress.addEventListener("dragover", dragOver);
+        taskProgress.addEventListener("dragenter", dragEnter);
+        taskProgress.addEventListener("drop", dragDrop);   
+
+        
+        let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];
+        toDoTasksColumns.insertAdjacentElement('beforeend', toDo);
+
     }
 
     let makeToDoElement = (data:any) => {
@@ -110,12 +132,11 @@ export function AppToDoListPage() {
             let taskProgress = document.querySelectorAll('#toDo')[0];
             taskProgress.addEventListener("dragover", dragOver);
             taskProgress.addEventListener("dragenter", dragEnter);
-            taskProgress.addEventListener("drop", dragDrop); 
+            taskProgress.addEventListener("drop", dragDrop);   
+            
            
             
             let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];
-            toDoTasksColumns.addEventListener("drop", dragDrop);            
-
             toDoTasksColumns.insertAdjacentElement('beforeend', toDo);
 
         });   
@@ -388,11 +409,44 @@ export function AppToDoListPage() {
 
     let dragDrop = async(event:any) => {
        
-
+        
         console.log("dragged Drop");
 
+        if(
+            event.target.querySelectorAll('#toDoTasks')[0].getAttribute('id') == "toDoTasks"
+            || event.target.parentNode.parentNode.querySelectorAll('#toDoTasks')[0].getAttribute('id') == "toDoTasks"
+        ) {
+
+            let tasksColumns = document.querySelectorAll('#toDoTasks')[0];
+            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
+
+        }
+
+
+        if(
+            event.target.querySelectorAll('#inProgressTasks')[0].getAttribute('id') == "inProgressTasks"
+            || event.target.parentNode.parentNode.querySelectorAll('#inProgressTasks')[0].getAttribute('id') == "inProgressTasks"
+        ) {
+
+            let tasksColumns = document.querySelectorAll('#inProgressTasks')[0];
+            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
+
+        }
+
+        if(
+            event.target.querySelectorAll('#doneTasks')[0].getAttribute('id') == "doneTasks"
+            || event.target.parentNode.parentNode.querySelectorAll('#doneTasks')[0].getAttribute('id') == "doneTasks"
+        ) {
+
+            let tasksColumns = document.querySelectorAll('#doneTasks')[0];
+            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
+
+        }
+
     }
-   
+
+
+
 
     allTasksToDoColumnOfUser();
     allTasksInProgressColumnOfUser();
@@ -414,13 +468,13 @@ export function AppToDoListPage() {
                         
                         <div className={styles.formInputs}>
                             <div>Título:</div>
-                            <input id="taskTitle" type="text" />
+                            <input id="newTaskTitle" type="text" />
                             
                         </div>
 
                         <div className={styles.formInputs}>
                             <div>Descrição:</div>
-                            <textarea id="taskDescription" rows={5} cols={40} />
+                            <textarea id="newTaskDescription" rows={5} cols={40} />
                         </div>
 
                         <div onClick={addNewTaskToDo} id="addNewTaskToDo" className={styles.addNewTaskToDoButton}>
