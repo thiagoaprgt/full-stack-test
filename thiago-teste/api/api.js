@@ -84,12 +84,48 @@ api.post('/api/updateToDoTask', async (request, response) => {
         title: request.body.title,
         description: request.body.description,
         taskProgress_id: 1,
-        user_id: request.body.user_id
+        user_id: Number.parseInt(request.body.user_id)
         
     }   
 
 
-    response.json(await repositoryToDoList.createUser(data));
+    response.json(await repositoryToDoList.updateTask(data));
+
+    
+
+})
+
+api.post('/api/updateInProgressTask', async (request, response) => {  
+    
+    let data = {
+        id: request.body.id,
+        title: request.body.title,
+        description: request.body.description,
+        taskProgress_id: 2,
+        user_id: Number.parseInt(request.body.user_id)
+        
+    }   
+
+
+    response.json(await repositoryToDoList.updateTask(data));
+
+    
+
+})
+
+api.post('/api/updateDoneTask', async (request, response) => {  
+    
+    let data = {
+        id: request.body.id,
+        title: request.body.title,
+        description: request.body.description,
+        taskProgress_id: 3,
+        user_id: Number.parseInt(request.body.user_id)
+        
+    }   
+
+
+    response.json(await repositoryToDoList.updateTask(data));
 
     
 
