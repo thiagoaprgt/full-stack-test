@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import { createElement, useEffect } from 'react';
 import styles from './appToDoListPage.module.css'
 
 
@@ -115,6 +115,14 @@ export function AppToDoListPage() {
     }
 
     let allTasksToDoColumnOfUser = async () => {
+
+        
+        let taskProgress = document.querySelectorAll('#toDo')[0];
+        taskProgress.addEventListener("dragover", dragOver);
+        taskProgress.addEventListener("dragenter", dragEnter);
+        taskProgress.addEventListener("drop", dragDrop);  
+
+       
         
         let response = await fetch('http://127.0.0.1:8001/api/toDo/' + sessionStorage.userId, {
             method : "GET"
@@ -128,19 +136,11 @@ export function AppToDoListPage() {
             toDo.addEventListener("dblclick", updateTaskToDo);
             toDo.addEventListener("dragstart", dragStart);           
             toDo.addEventListener("dragleave", dragLeave);
-
-            let taskProgress = document.querySelectorAll('#toDo')[0];
-            taskProgress.addEventListener("dragover", dragOver);
-            taskProgress.addEventListener("dragenter", dragEnter);
-            taskProgress.addEventListener("drop", dragDrop);   
-            
-           
             
             let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];
             toDoTasksColumns.insertAdjacentElement('beforeend', toDo);
 
         });   
-
         
 
     }
@@ -196,6 +196,11 @@ export function AppToDoListPage() {
     }
 
     let allTasksInProgressColumnOfUser = async () => {
+
+        let taskProgress = document.querySelectorAll('#inProgress')[0];
+        taskProgress.addEventListener("dragover", dragOver);
+        taskProgress.addEventListener("dragenter", dragEnter);
+        taskProgress.addEventListener("drop", dragDrop);  
         
         let response = await fetch('http://127.0.0.1:8001/api/inProgress/' + sessionStorage.userId, {
             method : "GET"
@@ -207,20 +212,10 @@ export function AppToDoListPage() {
             
             let InProgress = makeInProgressElement(task);
             InProgress.addEventListener("dblclick", updateTaskInProgress);
-
             InProgress.addEventListener("dragstart", dragStart);         
-            InProgress.addEventListener("dragleave", dragLeave);
-
-
-            let taskProgress = document.querySelectorAll('#inProgress')[0];
-            taskProgress.addEventListener("dragover", dragOver);
-            taskProgress.addEventListener("dragenter", dragEnter);
-            
-            
+            InProgress.addEventListener("dragleave", dragLeave);            
 
             let InProgressTasksColumns = document.querySelectorAll('#inProgressTasks')[0]; 
-            InProgressTasksColumns.addEventListener("drop", dragDrop);          
-
             InProgressTasksColumns.insertAdjacentElement('beforeend', InProgress);
 
         });   
@@ -279,6 +274,11 @@ export function AppToDoListPage() {
     }
 
     let allTasksDoneColumnOfUser = async () => {
+
+        let taskProgress = document.querySelectorAll('#Done')[0];
+        taskProgress.addEventListener("dragover", dragOver);
+        taskProgress.addEventListener("dragenter", dragEnter);
+        taskProgress.addEventListener("drop", dragDrop);
         
         let response = await fetch('http://127.0.0.1:8001/api/done/' + sessionStorage.userId, {
             method : "GET"
@@ -292,18 +292,10 @@ export function AppToDoListPage() {
 
             Done.addEventListener("dblclick", updateTaskDone);
             Done.addEventListener("dragstart", dragStart);
-            
-            Done.addEventListener("dragleave", dragLeave);
-           
-            
-            let taskProgress = document.querySelectorAll('#Done')[0];
-            taskProgress.addEventListener("dragover", dragOver);
-            taskProgress.addEventListener("dragenter", dragEnter);
-            taskProgress.addEventListener("drop", dragDrop); 
-            
+            Done.addEventListener("dragleave", dragLeave);    
 
-            let DoneTasksColumns = document.querySelectorAll('#doneTasks')[0];
-            
+
+            let DoneTasksColumns = document.querySelectorAll('#doneTasks')[0];            
             DoneTasksColumns.insertAdjacentElement('beforeend', Done);
 
         });   
@@ -513,9 +505,19 @@ export function AppToDoListPage() {
 
 
 
-    allTasksToDoColumnOfUser();
-    allTasksInProgressColumnOfUser();
-    allTasksDoneColumnOfUser();
+    useEffect(() => {
+
+        /*
+            O useEffect serve para usar funções só
+            depois que todo o html for renderizado
+        */
+
+        allTasksToDoColumnOfUser();
+        allTasksInProgressColumnOfUser();
+        allTasksDoneColumnOfUser();
+    });
+
+    
 
     return(
         <>
