@@ -104,10 +104,17 @@ export function AppToDoListPage() {
             let toDo:any = makeToDoElement(task);
             toDo.addEventListener("dblclick", updateTaskToDo);
 
-            toDo.addEventListener("dragstart", dragStart);
-            toDo.addEventListener("dragover", dragOver);
+            toDo.addEventListener("dragstart", dragStart);           
+            toDo.addEventListener("dragleave", dragLeave);
+
+            let taskProgress = document.querySelectorAll('#toDo')[0];
+            taskProgress.addEventListener("dragover", dragOver);
+            taskProgress.addEventListener("dragenter", dragEnter);
+            taskProgress.addEventListener("drop", dragDrop); 
+           
             
-            let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];            
+            let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];
+            toDoTasksColumns.addEventListener("drop", dragDrop);            
 
             toDoTasksColumns.insertAdjacentElement('beforeend', toDo);
 
@@ -179,10 +186,18 @@ export function AppToDoListPage() {
             let InProgress = makeInProgressElement(task);
             InProgress.addEventListener("dblclick", updateTaskInProgress);
 
-            InProgress.addEventListener("dragstart", dragStart);
-            InProgress.addEventListener("dragover", dragOver);
+            InProgress.addEventListener("dragstart", dragStart);         
+            InProgress.addEventListener("dragleave", dragLeave);
 
-            let InProgressTasksColumns = document.querySelectorAll('#inProgressTasks')[0];            
+
+            let taskProgress = document.querySelectorAll('#inProgress')[0];
+            taskProgress.addEventListener("dragover", dragOver);
+            taskProgress.addEventListener("dragenter", dragEnter);
+            taskProgress.addEventListener("drop", dragDrop); 
+            
+
+            let InProgressTasksColumns = document.querySelectorAll('#inProgressTasks')[0]; 
+            InProgressTasksColumns.addEventListener("drop", dragDrop);          
 
             InProgressTasksColumns.insertAdjacentElement('beforeend', InProgress);
 
@@ -255,13 +270,18 @@ export function AppToDoListPage() {
 
             Done.addEventListener("dblclick", updateTaskDone);
             Done.addEventListener("dragstart", dragStart);
-            Done.addEventListener("dragover", dragOver);
-            Done.addEventListener("dragover", dragLeave);
             
-            let taskProgress = document.querySelectorAll('#taskProgress')[0];
+            Done.addEventListener("dragleave", dragLeave);
+           
+            
+            let taskProgress = document.querySelectorAll('#Done')[0];
+            taskProgress.addEventListener("dragover", dragOver);
             taskProgress.addEventListener("dragenter", dragEnter);
+            taskProgress.addEventListener("drop", dragDrop); 
+            
 
-            let DoneTasksColumns = document.querySelectorAll('#doneTasks')[0]; 
+            let DoneTasksColumns = document.querySelectorAll('#doneTasks')[0];
+            
             DoneTasksColumns.insertAdjacentElement('beforeend', Done);
 
         });   
@@ -361,11 +381,18 @@ export function AppToDoListPage() {
    }
 
    let dragLeave = async(event:any) => {
-    let draggedElement = event.target;       
+        let draggedElement = event.target;       
         
-        console.log("dragged leave");
+        // console.log("dragged leave");
 
    }
+
+   let dragDrop = async(event:any) => {
+    let draggedElement = event.target;       
+    
+    console.log("dragged Drop");
+
+}
    
 
     allTasksToDoColumnOfUser();
@@ -519,7 +546,7 @@ export function AppToDoListPage() {
 
                 <div id="taskProgress" className={styles.taskProgress}>
 
-                    <div id="toDo" className={styles.toDo}>
+                    <div id="toDo" draggable="true"  className={styles.toDo}>
 
                         <p>
                             <span>To Do</span>
@@ -538,7 +565,7 @@ export function AppToDoListPage() {
 
                     </div>
 
-                    <div id="inProgress" className={styles.inProgress}>
+                    <div id="inProgress" draggable="true"  className={styles.inProgress}>
 
                         <p>
                             In Progress
@@ -553,7 +580,7 @@ export function AppToDoListPage() {
                     </div>
 
                     
-                    <div id="Done" className={styles.inProgress}>
+                    <div id="Done" draggable="true"  className={styles.inProgress}>
 
                         <p>
                             Done

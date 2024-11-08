@@ -1,4 +1,4 @@
-create table users (
+create table coopers.users (
     id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name varchar(100) not null,
     user varchar(100) not null unique,
@@ -6,12 +6,12 @@ create table users (
     password varchar(100) not null
 );
 
-create table taskProgress(
+create table coopers.taskProgress(
     id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name varchar(100) not null
 );
 
-create table taskToDoList (
+create table coopers.taskToDoList (
 
     id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     title varchar(100) not null,
@@ -24,8 +24,8 @@ create table taskToDoList (
 
 );
 
-INSERT INTO `users`( `name`, `user`, `email`, `password`) VALUES ('Thiago teste', 'teste', 'teste@email','456'), ('Carla', 'testando', 'testando@email','123');
+INSERT INTO `coopers`.`users`( `name`, `user`, `email`, `password`) VALUES ('Thiago teste', 'teste', 'teste@email','456'), ('Carla', 'testando', 'testando@email','123');
 
-INSERT INTO `taskProgress` (`name`) VALUES ('toDo'), ('inProgress'), ('Done');
+INSERT INTO `coopers`.`taskProgress` (`name`) VALUES ('toDo'), ('inProgress'), ('Done');
 
-INSERT INTO `taskToDoList`(`title`, `description`, `user_id`, `taskProgress_id`) VALUES ('tarefa1','descrição1', 1, 1), ('tarefa2','descriçãoABC', 1, 1) , ('tarefa2','fasfasdfas', 1, 2), ('tarefa0','descrição0', 1, 3);
+INSERT INTO `coopers`.`taskToDoList`(`title`, `description`, `user_id`, `taskProgress_id`) VALUES ('tarefa1','descrição1', 1, 1), ('tarefa2','descriçãoABC', 1, 1) , ('tarefa2','fasfasdfas', 1, 2), ('tarefa0','descrição0', 1, 3);
