@@ -66,7 +66,6 @@ export function AppToDoListPage() {
     let makeToDoElement = (data:any) => {
 
         let toDo = document.createElement('div');
-        toDo.setAttribute('id', 'toDoTasks');
         toDo.setAttribute('class', 'toDoTasks');
         toDo.setAttribute('draggable', 'true');
         toDo.setAttribute('task_id', data.id);
@@ -150,7 +149,6 @@ export function AppToDoListPage() {
     let makeInProgressElement = (data:any) => {
 
         let inProgress = document.createElement('div');
-        inProgress.setAttribute('id', 'inProgressTasks');
         inProgress.setAttribute('class', 'inProgressTasks');
         inProgress.setAttribute('draggable', 'true');
         inProgress.setAttribute('task_id', data.id);
@@ -232,7 +230,6 @@ export function AppToDoListPage() {
     let makeDoneElement = (data:any) => {
 
         let done = document.createElement('div');
-        done.setAttribute('id', 'doneTasks');
         done.setAttribute('class', 'doneTasks');
         done.setAttribute('draggable', 'true');
         done.setAttribute('task_id', data.id);
