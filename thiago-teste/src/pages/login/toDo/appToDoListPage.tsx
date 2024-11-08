@@ -360,10 +360,11 @@ export function AppToDoListPage() {
     }
 
 
+    let draggedElement:any = null
 
    let dragStart = async (event:any) => {
 
-        let draggedElement = event.target;
+        draggedElement = event.target;
         event.dataTransfer.effectAllowed = "move";
         console.clear();
         console.log(draggedElement);
@@ -374,25 +375,23 @@ export function AppToDoListPage() {
         event.preventDefault();
    }
 
-   let dragEnter = async(event:any) => {
-        let draggedElement = event.target;       
+   let dragEnter = async(event:any) => {           
         
         console.log("draggedEnter");
    }
 
    let dragLeave = async(event:any) => {
-        let draggedElement = event.target;       
         
         // console.log("dragged leave");
 
    }
 
-   let dragDrop = async(event:any) => {
-    let draggedElement = event.target;       
-    
-    console.log("dragged Drop");
+    let dragDrop = async(event:any) => {
+       
 
-}
+        console.log("dragged Drop");
+
+    }
    
 
     allTasksToDoColumnOfUser();
