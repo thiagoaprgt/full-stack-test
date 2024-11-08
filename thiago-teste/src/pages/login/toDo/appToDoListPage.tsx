@@ -135,6 +135,20 @@ export function AppToDoListPage() {
 
         let divParent = document.createElement('div');
 
+
+        let divId = document.createElement('div');
+
+        let strongTaskId = document.createElement('strong');
+        strongTaskId.innerHTML = 'ID:';
+
+        let spanTaskId = document.createElement('span');
+        spanTaskId.innerHTML = data.id;
+
+        divId.appendChild(strongTaskId);
+        divId.appendChild(spanTaskId);
+
+
+
         let divChildTitle = document.createElement('div');
 
         let strongTitle = document.createElement('strong');
@@ -157,7 +171,8 @@ export function AppToDoListPage() {
 
         divChildDescription.appendChild(strongDescription);
         divChildDescription.appendChild(spanDescription);
-
+        
+        divParent.appendChild(divId);
         divParent.appendChild(divChildTitle);
         divParent.appendChild(divChildDescription);
 
@@ -200,6 +215,20 @@ export function AppToDoListPage() {
 
         let divParent = document.createElement('div');
 
+        
+        let divId = document.createElement('div');
+
+        let strongTaskId = document.createElement('strong');
+        strongTaskId.innerHTML = 'ID:';
+
+        let spanTaskId = document.createElement('span');
+        spanTaskId.innerHTML = data.id;
+
+        divId.appendChild(strongTaskId);
+        divId.appendChild(spanTaskId);
+
+
+
         let divChildTitle = document.createElement('div');
 
         let strongTitle = document.createElement('strong');
@@ -223,6 +252,7 @@ export function AppToDoListPage() {
         divChildDescription.appendChild(strongDescription);
         divChildDescription.appendChild(spanDescription);
 
+        divParent.appendChild(divId);
         divParent.appendChild(divChildTitle);
         divParent.appendChild(divChildDescription);
 
