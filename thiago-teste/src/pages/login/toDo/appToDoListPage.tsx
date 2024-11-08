@@ -255,10 +255,13 @@ export function AppToDoListPage() {
 
             Done.addEventListener("dblclick", updateTaskDone);
             Done.addEventListener("dragstart", dragStart);
-            Done.addEventListener("dragover", dragOver); 
+            Done.addEventListener("dragover", dragOver);
+            Done.addEventListener("dragover", dragLeave);
+            
+            let taskProgress = document.querySelectorAll('#taskProgress')[0];
+            taskProgress.addEventListener("dragenter", dragEnter);
 
-            let DoneTasksColumns = document.querySelectorAll('#doneTasks')[0];            
-
+            let DoneTasksColumns = document.querySelectorAll('#doneTasks')[0]; 
             DoneTasksColumns.insertAdjacentElement('beforeend', Done);
 
         });   
@@ -341,12 +344,27 @@ export function AppToDoListPage() {
    let dragStart = async (event:any) => {
 
         let draggedElement = event.target;
-        console.log(draggedElement)
+        event.dataTransfer.effectAllowed = "move";
+        console.clear();
+        console.log(draggedElement);
     
    }
 
    let dragOver = async (event:any) => {
         event.preventDefault();
+   }
+
+   let dragEnter = async(event:any) => {
+        let draggedElement = event.target;       
+        
+        console.log("draggedEnter");
+   }
+
+   let dragLeave = async(event:any) => {
+    let draggedElement = event.target;       
+        
+        console.log("dragged leave");
+
    }
    
 
