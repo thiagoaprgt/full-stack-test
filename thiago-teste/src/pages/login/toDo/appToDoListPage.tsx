@@ -78,7 +78,7 @@ export function AppToDoListPage() {
         let divChildTitle = document.createElement('div');  
 
         let strongTitle = document.createElement('strong');
-        strongTitle.innerHTML = 'Título';
+        strongTitle.innerHTML = 'Título: ';
 
         let spanTitle = document.createElement('span');
         spanTitle.innerHTML = data.title;
@@ -92,7 +92,7 @@ export function AppToDoListPage() {
         let divChildDescription = document.createElement('div');
 
         let strongDescription = document.createElement('strong');
-        strongDescription.innerHTML = 'Descrição';
+        strongDescription.innerHTML = 'Descrição: ';
 
         let spanDescription = document.createElement('span');
         spanDescription.innerHTML = data.description;
