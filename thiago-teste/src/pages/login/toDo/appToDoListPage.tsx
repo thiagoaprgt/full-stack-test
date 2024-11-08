@@ -214,7 +214,7 @@ export function AppToDoListPage() {
             let taskProgress = document.querySelectorAll('#inProgress')[0];
             taskProgress.addEventListener("dragover", dragOver);
             taskProgress.addEventListener("dragenter", dragEnter);
-            taskProgress.addEventListener("drop", dragDrop); 
+            
             
 
             let InProgressTasksColumns = document.querySelectorAll('#inProgressTasks')[0]; 
@@ -412,36 +412,22 @@ export function AppToDoListPage() {
         
         console.log("dragged Drop");
 
-        if(
-            event.target.querySelectorAll('#toDoTasks')[0].getAttribute('id') == "toDoTasks"
-            || event.target.parentNode.parentNode.querySelectorAll('#toDoTasks')[0].getAttribute('id') == "toDoTasks"
-        ) {
+        console.log(event.target);
 
-            let tasksColumns = document.querySelectorAll('#toDoTasks')[0];
-            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
+       
 
-        }
+        // if(
+        //     event.target.querySelectorAll('#toDoTasks')[0].getAttributeNode('id').value == "toDoTasks"
+        //     || event.target.parentNode.parentNode.querySelectorAll('#toDoTasks')[0].getAttributeNode('id').value == "toDoTasks"
+        // ) {
+
+        //     let tasksColumns = document.querySelectorAll('#toDoTasks')[0];
+        //     tasksColumns.insertAdjacentElement('beforeend', draggedElement);
+
+        // }
 
 
-        if(
-            event.target.querySelectorAll('#inProgressTasks')[0].getAttribute('id') == "inProgressTasks"
-            || event.target.parentNode.parentNode.querySelectorAll('#inProgressTasks')[0].getAttribute('id') == "inProgressTasks"
-        ) {
-
-            let tasksColumns = document.querySelectorAll('#inProgressTasks')[0];
-            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
-
-        }
-
-        if(
-            event.target.querySelectorAll('#doneTasks')[0].getAttribute('id') == "doneTasks"
-            || event.target.parentNode.parentNode.querySelectorAll('#doneTasks')[0].getAttribute('id') == "doneTasks"
-        ) {
-
-            let tasksColumns = document.querySelectorAll('#doneTasks')[0];
-            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
-
-        }
+       
 
     }
 
