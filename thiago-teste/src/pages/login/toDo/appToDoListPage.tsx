@@ -69,9 +69,11 @@ export function AppToDoListPage() {
         toDo.setAttribute('class', 'toDoTasks');
         toDo.setAttribute('draggable', 'true');
         toDo.setAttribute('task_id', data.id);
+        toDo.setAttribute('tile', data.title);
+        toDo.setAttribute('description', data.description);
 
         let divParent = document.createElement('div');
-        let divId = document.createElement('div');
+        
 
 
         let divChildTitle = document.createElement('div');  
@@ -152,9 +154,11 @@ export function AppToDoListPage() {
         inProgress.setAttribute('class', 'inProgressTasks');
         inProgress.setAttribute('draggable', 'true');
         inProgress.setAttribute('task_id', data.id);
+        inProgress.setAttribute('tile', data.title);
+        inProgress.setAttribute('description', data.description);
 
         let divParent = document.createElement('div');
-        let divId = document.createElement('div');
+        
 
 
         let divChildTitle = document.createElement('div');
@@ -233,10 +237,11 @@ export function AppToDoListPage() {
         done.setAttribute('class', 'doneTasks');
         done.setAttribute('draggable', 'true');
         done.setAttribute('task_id', data.id);
+        done.setAttribute('tile', data.title);
+        done.setAttribute('description', data.description);
+
 
         let divParent = document.createElement('div');        
-        let divId = document.createElement('div');
-
         
 
         let divChildTitle = document.createElement('div');
@@ -418,8 +423,28 @@ export function AppToDoListPage() {
             || event.target.parentNode.parentNode.getAttribute('id') == "toDoTasks"
         ) {
 
-            let tasksColumns = document.querySelectorAll('#toDoTasks')[0];
-            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
+            let tasksColumns = document.querySelectorAll('#toDoTasks div[task_id]');
+            
+            for (let index = 0; index < tasksColumns.length; index++) {
+                tasksColumns[index].remove(); 
+                               
+            }
+
+            let form = new FormData();
+
+            form.append("id", draggedElement.getAttribute('task_id'));
+            form.append("title", draggedElement.getAttribute('title'));
+            form.append("description", draggedElement.getAttribute('description'));
+            form.append("user_id", sessionStorage.userId);
+            
+                
+            let response = await fetch('http://127.0.0.1:8001/api/updateToDoTask', {
+                method: "POST",   
+                body: form
+            })
+            
+
+            console.log(draggedElement.getAttribute("task_id"));
 
         }
 
