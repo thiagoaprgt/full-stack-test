@@ -126,7 +126,6 @@ export function AppToDoListPage() {
             
             let toDo:any = makeToDoElement(task);
             toDo.addEventListener("dblclick", updateTaskToDo);
-
             toDo.addEventListener("dragstart", dragStart);           
             toDo.addEventListener("dragleave", dragLeave);
 
@@ -416,7 +415,7 @@ export function AppToDoListPage() {
 
         console.log(event.target.getAttribute('id'));
 
-       
+        draggedElement.remove()
 
         if(
             event.target.getAttribute('id') == "toDoTasks"
@@ -444,7 +443,7 @@ export function AppToDoListPage() {
             })
             
 
-            console.log(draggedElement.getAttribute("task_id"));
+            await allTasksToDoColumnOfUser();
 
         }
 
@@ -453,10 +452,28 @@ export function AppToDoListPage() {
             event.target.getAttribute('id') == "inProgressTasks"
             || event.target.parentNode.parentNode.getAttribute('id') == "inProgressTasks"
         ) {
+            
+            let tasksColumns = document.querySelectorAll('#inProgressTasks div[task_id]');
+            
+            for (let index = 0; index < tasksColumns.length; index++) {
+                tasksColumns[index].remove(); 
+                               
+            }
 
-            let tasksColumns = document.querySelectorAll('#inProgressTasks')[0];
-            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
+            let form = new FormData();
 
+            form.append("id", draggedElement.getAttribute('task_id'));
+            form.append("title", draggedElement.getAttribute('title'));
+            form.append("description", draggedElement.getAttribute('description'));
+            form.append("user_id", sessionStorage.userId);
+            
+                
+            let response = await fetch('http://127.0.0.1:8001/api/updateInProgressTask', {
+                method: "POST",   
+                body: form
+            })
+
+            allTasksInProgressColumnOfUser();
         }
 
         if(
@@ -464,8 +481,27 @@ export function AppToDoListPage() {
             || event.target.parentNode.parentNode.getAttribute('id') == "doneTasks"
         ) {
 
-            let tasksColumns = document.querySelectorAll('#doneTasks')[0];
-            tasksColumns.insertAdjacentElement('beforeend', draggedElement);
+            let tasksColumns = document.querySelectorAll('#doneTasks div[task_id]');
+            
+            for (let index = 0; index < tasksColumns.length; index++) {
+                tasksColumns[index].remove(); 
+                               
+            }
+
+            let form = new FormData();
+
+            form.append("id", draggedElement.getAttribute('task_id'));
+            form.append("title", draggedElement.getAttribute('title'));
+            form.append("description", draggedElement.getAttribute('description'));
+            form.append("user_id", sessionStorage.userId);
+            
+                
+            let response = await fetch('http://127.0.0.1:8001/api/updateDoneTask', {
+                method: "POST",   
+                body: form
+            })
+
+            allTasksDoneColumnOfUser();
 
         }
 
