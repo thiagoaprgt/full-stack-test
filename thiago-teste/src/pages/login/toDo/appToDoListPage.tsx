@@ -45,24 +45,12 @@ export function AppToDoListPage() {
 
         let toDo = document.createElement('div');
         toDo.setAttribute('id', 'toDoTasks');
-        toDo.setAttribute('class', 'toDoTasks')
-        toDo.setAttribute('draggable', 'true')
+        toDo.setAttribute('class', 'toDoTasks');
+        toDo.setAttribute('draggable', 'true');
+        toDo.setAttribute('task_id', data.id);
 
         let divParent = document.createElement('div');
-
-
         let divId = document.createElement('div');
-
-        let strongTaskId = document.createElement('strong');
-        strongTaskId.innerHTML = 'ID:';
-
-        let spanTaskId = document.createElement('span');
-        spanTaskId.innerHTML = data.id;
-
-        divId.appendChild(strongTaskId);
-        divId.appendChild(spanTaskId);
-
-
 
 
         let divChildTitle = document.createElement('div');  
@@ -91,7 +79,6 @@ export function AppToDoListPage() {
         divChildDescription.appendChild(spanDescription);
 
 
-        divParent.appendChild(divId);
         divParent.appendChild(divChildTitle);
         divParent.appendChild(divChildDescription);
         
@@ -134,22 +121,11 @@ export function AppToDoListPage() {
         let inProgress = document.createElement('div');
         inProgress.setAttribute('id', 'inProgressTasks');
         inProgress.setAttribute('class', 'inProgressTasks');
-        inProgress.setAttribute('draggable', 'true')
+        inProgress.setAttribute('draggable', 'true');
+        inProgress.setAttribute('task_id', data.id);
 
         let divParent = document.createElement('div');
-
-
         let divId = document.createElement('div');
-
-        let strongTaskId = document.createElement('strong');
-        strongTaskId.innerHTML = 'ID:';
-
-        let spanTaskId = document.createElement('span');
-        spanTaskId.innerHTML = data.id;
-
-        divId.appendChild(strongTaskId);
-        divId.appendChild(spanTaskId);
-
 
 
         let divChildTitle = document.createElement('div');
@@ -175,7 +151,7 @@ export function AppToDoListPage() {
         divChildDescription.appendChild(strongDescription);
         divChildDescription.appendChild(spanDescription);
         
-        divParent.appendChild(divId);
+        
         divParent.appendChild(divChildTitle);
         divParent.appendChild(divChildDescription);
 
@@ -216,22 +192,12 @@ export function AppToDoListPage() {
         done.setAttribute('id', 'doneTasks');
         done.setAttribute('class', 'doneTasks');
         done.setAttribute('draggable', 'true');
+        done.setAttribute('task_id', data.id);
 
-        let divParent = document.createElement('div');
-
-        
+        let divParent = document.createElement('div');        
         let divId = document.createElement('div');
 
-        let strongTaskId = document.createElement('strong');
-        strongTaskId.innerHTML = 'ID:';
-
-        let spanTaskId = document.createElement('span');
-        spanTaskId.innerHTML = data.id;
-
-        divId.appendChild(strongTaskId);
-        divId.appendChild(spanTaskId);
-
-
+        
 
         let divChildTitle = document.createElement('div');
 
@@ -256,7 +222,7 @@ export function AppToDoListPage() {
         divChildDescription.appendChild(strongDescription);
         divChildDescription.appendChild(spanDescription);
 
-        divParent.appendChild(divId);
+        
         divParent.appendChild(divChildTitle);
         divParent.appendChild(divChildDescription);
 
