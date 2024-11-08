@@ -102,8 +102,11 @@ export function AppToDoListPage() {
         await db.map(async (task:any) => {
             
             let toDo:any = makeToDoElement(task);
-            toDo.addEventListener("dblclick", updateTaskToDo)
-            toDo.addEventListener("draon", console.log('Dragged'))
+            toDo.addEventListener("dblclick", updateTaskToDo);
+
+            toDo.addEventListener("dragstart", dragStart);
+            toDo.addEventListener("dragover", dragOver);
+            
             let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];            
 
             toDoTasksColumns.insertAdjacentElement('beforeend', toDo);
@@ -174,7 +177,11 @@ export function AppToDoListPage() {
         await db.map(async (task:any) => {
             
             let InProgress = makeInProgressElement(task);
-            InProgress.addEventListener("dblclick", updateTaskInProgress)
+            InProgress.addEventListener("dblclick", updateTaskInProgress);
+
+            InProgress.addEventListener("dragstart", dragStart);
+            InProgress.addEventListener("dragover", dragOver);
+
             let InProgressTasksColumns = document.querySelectorAll('#inProgressTasks')[0];            
 
             InProgressTasksColumns.insertAdjacentElement('beforeend', InProgress);
@@ -245,7 +252,11 @@ export function AppToDoListPage() {
         await db.map(async (task:any) => {
             
             let Done:any = makeDoneElement(task);  
-            Done.addEventListener("dblclick", updateTaskDone)          
+
+            Done.addEventListener("dblclick", updateTaskDone);
+            Done.addEventListener("dragstart", dragStart);
+            Done.addEventListener("dragover", dragOver); 
+
             let DoneTasksColumns = document.querySelectorAll('#doneTasks')[0];            
 
             DoneTasksColumns.insertAdjacentElement('beforeend', Done);
@@ -326,6 +337,17 @@ export function AppToDoListPage() {
     }
 
 
+
+   let dragStart = async (event:any) => {
+
+        let draggedElement = event.target;
+        console.log(draggedElement)
+    
+   }
+
+   let dragOver = async (event:any) => {
+        event.preventDefault();
+   }
    
 
     allTasksToDoColumnOfUser();
