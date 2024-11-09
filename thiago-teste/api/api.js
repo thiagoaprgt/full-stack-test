@@ -86,7 +86,7 @@ api.get('/api/done/:userId', async (request, response) => {
 api.post('/api/updateToDoTask', async (request, response) => {  
     
     let data = {
-        id: request.body.id,
+        id: Number.parseInt(request.body.id),
         title: request.body.title,
         description: request.body.description,
         taskProgress_id: 1,
@@ -104,7 +104,7 @@ api.post('/api/updateToDoTask', async (request, response) => {
 api.post('/api/updateInProgressTask', async (request, response) => {  
     
     let data = {
-        id: request.body.id,
+        id: Number.parseInt(request.body.id),
         title: request.body.title,
         description: request.body.description,
         taskProgress_id: 2,

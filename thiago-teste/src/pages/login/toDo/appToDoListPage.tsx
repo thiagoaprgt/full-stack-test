@@ -350,11 +350,10 @@ export function AppToDoListPage() {
 
         let form = new FormData();
 
-        eval(`form.append("id", "?"`);
+        form.append("id", sessionStorage.taskId)
         eval(`form.append("title", document.querySelectorAll('#updateTaskToDoTitle')[0].value)`);
         eval(`form.append("description", document.querySelectorAll('#updateTaskToDoDescription')[0].value)`); 
-        eval(`form.append("taskProgress_id", 1`); 
-        eval(`form.append("taskProgress_id", sessionStorage.userId`); 
+        
         
               
         let response = await fetch(url + '/api/updateToDoTask', {
@@ -374,12 +373,12 @@ export function AppToDoListPage() {
 
         let form = new FormData();
 
-        eval(`form.append("taskProgress_id", 2`);
+        form.append("id", sessionStorage.taskId)
         eval(`form.append("user", document.querySelectorAll('#updateTaskInProgressTitle')[0].value)`);
         eval(`form.append("password", document.querySelectorAll('#updateTaskInProgressDescription')[0].value)`);  
         
               
-        let response = await fetch(url + '/', {
+        let response = await fetch(url + '/api/updateInProgressTask', {
             method: "POST",   
             body: form
         })
