@@ -122,7 +122,7 @@ api.post('/api/updateInProgressTask', async (request, response) => {
 api.post('/api/updateDoneTask', async (request, response) => {  
     
     let data = {
-        id: request.body.id,
+        id: Number.parseInt(request.body.id),
         title: request.body.title,
         description: request.body.description,
         taskProgress_id: 3,

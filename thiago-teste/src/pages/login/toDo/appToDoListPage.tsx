@@ -39,6 +39,38 @@ export function AppToDoListPage() {
 
     }
 
+    
+    let getTaskIdByEvent = async (event:any) => { console.log("thiago")
+
+        if(event.target.getAttribute("task_id") != undefined)  {
+            
+            // console.log(event.target.getAttribute("task_id"));
+            let task_id = event.target.getAttribute("task_id");
+            sessionStorage.setItem('taskId', task_id)
+
+        }else if(event.target.parentNode.getAttribute("task_id") != undefined) {
+            
+            // console.log(event.target.parentNode.getAttribute("task_id"));
+            let task_id = event.target.parentNode.getAttribute("task_id");
+            sessionStorage.setItem('taskId', task_id)
+
+        } else if(event.target.parentNode.parentNode.getAttribute("task_id") != undefined ) {
+            
+            // console.log(event.target.parentNode.parentNode.getAttribute("task_id"));
+            let task_id = event.target.parentNode.parentNode.getAttribute("task_id");
+            sessionStorage.setItem('taskId', task_id)
+
+        } else if(event.target.parentNode.parentNode.parentNode.getAttribute("task_id") != undefined ) {
+            
+            // console.log(event.target.parentNode.parentNode.parentNode.getAttribute("task_id"));
+            let task_id = event.target.parentNode.parentNode.parentNode.getAttribute("task_id");
+            sessionStorage.setItem('taskId', task_id)
+
+        }
+
+    }
+
+
     let addNewTaskToDo = async () => {
 
         let form = new FormData();
@@ -295,6 +327,7 @@ export function AppToDoListPage() {
             let Done:any = makeDoneElement(task);  
 
             Done.addEventListener("dblclick", updateTaskDone);
+            Done.addEventListener("dblclick", getTaskIdByEvent);
             Done.addEventListener("dragstart", dragStart);
             Done.addEventListener("dragleave", dragLeave);    
 
@@ -361,12 +394,12 @@ export function AppToDoListPage() {
 
         let form = new FormData();
 
-        eval(`form.append("taskProgress_id", 3`);
+        form.append("id", sessionStorage.taskId);
         eval(`form.append("user", document.querySelectorAll('#updateTaskDoneTitle')[0].value)`);
         eval(`form.append("password", document.querySelectorAll('#updateTaskDoneDescription')[0].value)`);  
         
               
-        let response = await fetch(url + '/', {
+        let response = await fetch(url + '/api/updateDoneTask', {
             method: "POST",   
             body: form
         })
