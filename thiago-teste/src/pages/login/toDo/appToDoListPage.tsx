@@ -5,6 +5,8 @@ import styles from './appToDoListPage.module.css'
 
 export function AppToDoListPage() {
 
+    let url:any = 'http://127.0.0.1:8001';
+
     let closetoTaskForm = async () => {
 
          /*
@@ -39,27 +41,29 @@ export function AppToDoListPage() {
 
     let addNewTaskToDo = async () => {
 
-        let data:any = {
-            title: eval(`document.querySelectorAll("#newTaskTitle")[0].value`),
-            description: eval(`document.querySelectorAll("#newTaskDescription")[0].value`)
-        }
+        let form = new FormData();
 
-
-        let toDo:any = makeToDoElement(data);
-
-        toDo.addEventListener("dblclick", updateTaskToDo);
-
-        toDo.addEventListener("dragstart", dragStart);           
-        toDo.addEventListener("dragleave", dragLeave);
-
-        let taskProgress = document.querySelectorAll('#toDo')[0];
-        taskProgress.addEventListener("dragover", dragOver);
-        taskProgress.addEventListener("dragenter", dragEnter);
-        taskProgress.addEventListener("drop", dragDrop);   
+        eval(`form.append("title", document.querySelectorAll("#newTaskTitle")[0].value)`);
+        eval(`form.append("description", document.querySelectorAll("#newTaskDescription")[0].value)`);
+        form.append("user_id", sessionStorage.userId);
 
         
-        let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];
-        toDoTasksColumns.insertAdjacentElement('beforeend', toDo);
+
+        let response = await fetch (url + "/api/createToDoTask", {
+            method: "POST",
+            body: form
+        });
+
+        let tasksColumns = document.querySelectorAll('#toDoTasks div[task_id]');
+            
+        for (let index = 0; index < tasksColumns.length; index++) {
+            tasksColumns[index].remove(); 
+                            
+        }
+
+        allTasksToDoColumnOfUser();
+
+        
 
     }
 
@@ -124,7 +128,7 @@ export function AppToDoListPage() {
 
        
         
-        let response = await fetch('http://127.0.0.1:8001/api/toDo/' + sessionStorage.userId, {
+        let response = await fetch(url + '/api/toDo/' + sessionStorage.userId, {
             method : "GET"
         });
 
@@ -202,7 +206,7 @@ export function AppToDoListPage() {
         taskProgress.addEventListener("dragenter", dragEnter);
         taskProgress.addEventListener("drop", dragDrop);  
         
-        let response = await fetch('http://127.0.0.1:8001/api/inProgress/' + sessionStorage.userId, {
+        let response = await fetch(url + '/api/inProgress/' + sessionStorage.userId, {
             method : "GET"
         });
 
@@ -280,7 +284,7 @@ export function AppToDoListPage() {
         taskProgress.addEventListener("dragenter", dragEnter);
         taskProgress.addEventListener("drop", dragDrop);
         
-        let response = await fetch('http://127.0.0.1:8001/api/done/' + sessionStorage.userId, {
+        let response = await fetch(url + '/api/done/' + sessionStorage.userId, {
             method : "GET"
         });
 
@@ -318,7 +322,7 @@ export function AppToDoListPage() {
         eval(`form.append("taskProgress_id", sessionStorage.userId`); 
         
               
-        let response = await fetch('http://127.0.0.1:8001/api/updateToDoTask', {
+        let response = await fetch(url + '/api/updateToDoTask', {
             method: "POST",   
             body: form
         })
@@ -340,7 +344,7 @@ export function AppToDoListPage() {
         eval(`form.append("password", document.querySelectorAll('#updateTaskInProgressDescription')[0].value)`);  
         
               
-        let response = await fetch('http://127.0.0.1:8001/', {
+        let response = await fetch(url + '/', {
             method: "POST",   
             body: form
         })
@@ -362,7 +366,7 @@ export function AppToDoListPage() {
         eval(`form.append("password", document.querySelectorAll('#updateTaskDoneDescription')[0].value)`);  
         
               
-        let response = await fetch('http://127.0.0.1:8001/', {
+        let response = await fetch(url + '/', {
             method: "POST",   
             body: form
         })
@@ -431,7 +435,7 @@ export function AppToDoListPage() {
             form.append("user_id", sessionStorage.userId);
             
                 
-            let response = await fetch('http://127.0.0.1:8001/api/updateToDoTask', {
+            let response = await fetch(url + '/api/updateToDoTask', {
                 method: "POST",   
                 body: form
             })
@@ -464,7 +468,7 @@ export function AppToDoListPage() {
             form.append("user_id", sessionStorage.userId);
             
                 
-            let response = await fetch('http://127.0.0.1:8001/api/updateInProgressTask', {
+            let response = await fetch(url + '/api/updateInProgressTask', {
                 method: "POST",   
                 body: form
             })
@@ -494,7 +498,7 @@ export function AppToDoListPage() {
             form.append("user_id", sessionStorage.userId);
             
                 
-            let response = await fetch('http://127.0.0.1:8001/api/updateDoneTask', {
+            let response = await fetch(url + '/api/updateDoneTask', {
                 method: "POST",   
                 body: form
             })
@@ -552,7 +556,7 @@ export function AppToDoListPage() {
 
                         <div onClick={addNewTaskToDo} id="addNewTaskToDo" className={styles.addNewTaskToDoButton}>
 
-                            <div >Adicionar Nova Tarefa</div>
+                            Adicionar Nova Tarefa
                             
                         </div> 
 

@@ -34,6 +34,12 @@ api.get('/api', async (request, response) => {
 
 })
 
+api.post('/api/createToDoTask', async (request, response) => {    
+
+    response.json( await repositoryToDoList.createToDoTask(request.body));
+
+})
+
 
 api.get('/api/toDo/:userId', async (request, response) => {    
 

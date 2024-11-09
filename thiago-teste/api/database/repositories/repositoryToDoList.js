@@ -2,6 +2,26 @@ import { connection } from "../connection.js";
 
 
 export class repositoryToDoList {
+
+    static async createToDoTask(data) {
+
+        try {
+
+            let conn = await connection.open();
+
+            let sql = `INSERT INTO taskToDoList (title, description, taskProgress_id, user_id) VALUES('${data.title}', '${data.description}', 1, ${data.user_id})`;
+
+            let [rows, fields] = await conn.query(sql); 
+            
+            return {success: "Tarefa criada com sucesso"}
+            
+        } catch (error) {
+
+            return {problem: "Ocorreu um erro"}
+            
+        }
+
+    }
    
    
     static async getAllTask() {
