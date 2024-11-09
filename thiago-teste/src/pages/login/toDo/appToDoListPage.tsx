@@ -407,12 +407,14 @@ export function AppToDoListPage() {
 
         console.log(event.target.getAttribute('id'));
 
-        draggedElement.remove()
+        
 
         if(
             event.target.getAttribute('id') == "toDoTasks"
             || event.target.parentNode.parentNode.getAttribute('id') == "toDoTasks"
         ) {
+
+            draggedElement.remove()
 
             let tasksColumns = document.querySelectorAll('#toDoTasks div[task_id]');
             
@@ -444,6 +446,8 @@ export function AppToDoListPage() {
             event.target.getAttribute('id') == "inProgressTasks"
             || event.target.parentNode.parentNode.getAttribute('id') == "inProgressTasks"
         ) {
+
+            draggedElement.remove()
             
             let tasksColumns = document.querySelectorAll('#inProgressTasks div[task_id]');
             
@@ -472,6 +476,8 @@ export function AppToDoListPage() {
             event.target.getAttribute('id') == "doneTasks"
             || event.target.parentNode.parentNode.getAttribute('id') == "doneTasks"
         ) {
+
+            draggedElement.remove()
 
             let tasksColumns = document.querySelectorAll('#doneTasks div[task_id]');
             
