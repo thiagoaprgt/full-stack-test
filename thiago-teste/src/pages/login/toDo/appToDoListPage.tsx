@@ -169,7 +169,7 @@ export function AppToDoListPage() {
         await db.map(async (task:any) => {
             
             let toDo:any = makeToDoElement(task);
-            toDo.addEventListener("dblclick", updateTaskToDo);
+            toDo.addEventListener("dblclick", updateTaskToDoForm);
             toDo.addEventListener("dblclick", getTaskIdByEvent);
             toDo.addEventListener("dragstart", dragStart);           
             toDo.addEventListener("dragleave", dragLeave);
@@ -248,7 +248,7 @@ export function AppToDoListPage() {
         await db.map(async (task:any) => {
             
             let InProgress = makeInProgressElement(task);
-            InProgress.addEventListener("dblclick", updateTaskInProgress);
+            InProgress.addEventListener("dblclick", updateTaskInProgressForm);
             InProgress.addEventListener("dblclick", getTaskIdByEvent);
             InProgress.addEventListener("dragstart", dragStart);         
             InProgress.addEventListener("dragleave", dragLeave);            
@@ -328,7 +328,7 @@ export function AppToDoListPage() {
             
             let Done:any = makeDoneElement(task);  
 
-            Done.addEventListener("dblclick", updateTaskDone);
+            Done.addEventListener("dblclick", updateTaskDoneForm);
             Done.addEventListener("dblclick", getTaskIdByEvent);
             Done.addEventListener("dragstart", dragStart);
             Done.addEventListener("dragleave", dragLeave);    
@@ -343,11 +343,15 @@ export function AppToDoListPage() {
 
     }
 
-
-    let updateTaskToDo = async () => {
+    let updateTaskToDoForm = async () => {
 
         eval(`document.querySelectorAll('#updateTaskToDoFormBackground')[0].style.visibility = "visible"`);
 
+    }
+
+    let updateTaskToDo = async () => {
+
+        
         let form = new FormData();
 
         form.append("id", sessionStorage.taskId)
@@ -367,9 +371,14 @@ export function AppToDoListPage() {
         
     }
 
-    let updateTaskInProgress = async () => {
+    let updateTaskInProgressForm = async () => {
 
         eval(`document.querySelectorAll('#updateTaskInProgressFormBackground')[0].style.visibility = "visible"`);
+
+    }
+
+    let updateTaskInProgress = async () => {
+        
 
         let form = new FormData();
 
@@ -386,6 +395,12 @@ export function AppToDoListPage() {
         let data = await response.json().then((res) => {
             return res;
         })
+        
+    }
+
+    let updateTaskDoneForm = async () => {
+
+        eval(`document.querySelectorAll('#updateTaskDoneFormBackground')[0].style.visibility = "visible"`);
         
     }
 
