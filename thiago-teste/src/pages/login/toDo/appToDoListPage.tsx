@@ -354,7 +354,8 @@ export function AppToDoListPage() {
         
         let form = new FormData();
 
-        form.append("id", sessionStorage.taskId)
+        form.append("id", sessionStorage.taskId);
+        form.append("user_id", sessionStorage.userId);
         eval(`form.append("title", document.querySelectorAll('#updateTaskToDoTitle')[0].value)`);
         eval(`form.append("description", document.querySelectorAll('#updateTaskToDoDescription')[0].value)`); 
         
@@ -365,9 +366,14 @@ export function AppToDoListPage() {
             body: form
         })
 
-        let data = await response.json().then((res) => {
-            return res;
-        })
+        let tasksColumns = document.querySelectorAll('#toDoTasks div[task_id]');
+            
+            for (let index = 0; index < tasksColumns.length; index++) {
+                tasksColumns[index].remove(); 
+                               
+        }
+
+        allTasksToDoColumnOfUser();
         
     }
 
@@ -382,9 +388,10 @@ export function AppToDoListPage() {
 
         let form = new FormData();
 
-        form.append("id", sessionStorage.taskId)
-        eval(`form.append("user", document.querySelectorAll('#updateTaskInProgressTitle')[0].value)`);
-        eval(`form.append("password", document.querySelectorAll('#updateTaskInProgressDescription')[0].value)`);  
+        form.append("id", sessionStorage.taskId);
+        form.append("user_id", sessionStorage.userId);
+        eval(`form.append("title", document.querySelectorAll('#updateTaskInProgressTitle')[0].value)`);
+        eval(`form.append("description", document.querySelectorAll('#updateTaskInProgressDescription')[0].value)`);  
         
               
         let response = await fetch(url + '/api/updateInProgressTask', {
@@ -392,9 +399,16 @@ export function AppToDoListPage() {
             body: form
         })
 
-        let data = await response.json().then((res) => {
-            return res;
-        })
+        
+        let tasksColumns = document.querySelectorAll('#inProgressTasks div[task_id]');
+            
+            for (let index = 0; index < tasksColumns.length; index++) {
+                tasksColumns[index].remove(); 
+                               
+        }
+
+        allTasksInProgressColumnOfUser();
+        
         
     }
 
@@ -411,8 +425,9 @@ export function AppToDoListPage() {
         let form = new FormData();
 
         form.append("id", sessionStorage.taskId);
-        eval(`form.append("user", document.querySelectorAll('#updateTaskDoneTitle')[0].value)`);
-        eval(`form.append("password", document.querySelectorAll('#updateTaskDoneDescription')[0].value)`);  
+        form.append("user_id", sessionStorage.userId);
+        eval(`form.append("title", document.querySelectorAll('#updateTaskDoneTitle')[0].value)`);
+        eval(`form.append("description", document.querySelectorAll('#updateTaskDoneDescription')[0].value)`);  
         
               
         let response = await fetch(url + '/api/updateDoneTask', {
@@ -420,9 +435,14 @@ export function AppToDoListPage() {
             body: form
         })
 
-        let data = await response.json().then((res) => {
-            return res;
-        })
+        let tasksColumns = document.querySelectorAll('#doneTasks div[task_id]');
+            
+            for (let index = 0; index < tasksColumns.length; index++) {
+                tasksColumns[index].remove(); 
+                               
+        }
+
+        allTasksDoneColumnOfUser();
         
     }
 
