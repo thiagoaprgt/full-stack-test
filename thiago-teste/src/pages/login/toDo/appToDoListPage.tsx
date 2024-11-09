@@ -40,7 +40,7 @@ export function AppToDoListPage() {
     }
 
     
-    let getTaskIdByEvent = async (event:any) => { console.log("thiago")
+    let getTaskIdByEvent = async (event:any) => {
 
         if(event.target.getAttribute("task_id") != undefined)  {
             
@@ -170,6 +170,7 @@ export function AppToDoListPage() {
             
             let toDo:any = makeToDoElement(task);
             toDo.addEventListener("dblclick", updateTaskToDo);
+            toDo.addEventListener("dblclick", getTaskIdByEvent);
             toDo.addEventListener("dragstart", dragStart);           
             toDo.addEventListener("dragleave", dragLeave);
             
@@ -248,6 +249,7 @@ export function AppToDoListPage() {
             
             let InProgress = makeInProgressElement(task);
             InProgress.addEventListener("dblclick", updateTaskInProgress);
+            InProgress.addEventListener("dblclick", getTaskIdByEvent);
             InProgress.addEventListener("dragstart", dragStart);         
             InProgress.addEventListener("dragleave", dragLeave);            
 
