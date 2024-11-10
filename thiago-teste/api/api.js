@@ -130,4 +130,31 @@ api.post('/api/doLogin', async (request, response) => {
     
 })
 
+api.get('/api/deleteTask/:id', async (request, response) => {  
+
+        
+     
+
+    response.json(await repositoryToDoList.deleteTask(request.params.id))    
+    
+})
+
+api.get('/api/deleteAllToDoTask', async (request, response) => {  
+
+        
+     
+
+    response.json(await repositoryToDoList.deleteTask())    
+    
+})
+
+api.get('/api/deleteAllDoneTask', async (request, response) => {  
+
+        
+     
+
+    response.json(await repositoryToDoList.deleteAllDoneTask())    
+    
+})
+
 api.listen(8001)

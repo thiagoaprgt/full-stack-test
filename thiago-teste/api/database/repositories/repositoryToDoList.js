@@ -111,6 +111,65 @@ export class repositoryToDoList {
         }
     }
 
+
+    static async deleteTask(id) {
+
+        try {
+
+            let sql = `DELETE from taskToDoList WHERE id = ${id}`;
+           
+            let conn = await connection.open();
+            await conn.query(sql); 
+
+            
+        } catch (error) {
+            
+            
+            return {problem : "Ocorreu um problema"}
+            
+        }
+
+    }
+
+    static async deleteAllToDoTask() {
+
+        try {
+
+            let sql = `DELETE from taskToDoList WHERE taskProgress_id = 1`;
+           
+            let conn = await connection.open();
+            await conn.query(sql); 
+
+            
+        } catch (error) {
+            
+            
+            return {problem : "Ocorreu um problema"}
+            
+        }
+
+    }
+
+
+    static async deleteAllDoneTask() {
+
+        try {
+
+            let sql = `DELETE from taskToDoList WHERE taskProgress_id = 2`;
+           
+            let conn = await connection.open();
+            await conn.query(sql); 
+
+            
+        } catch (error) {
+            
+            
+            return {problem : "Ocorreu um problema"}
+            
+        }
+
+    }
+
     
 
 }
