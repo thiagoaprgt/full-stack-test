@@ -259,7 +259,7 @@ export function AppToDoListPage() {
 
         form.append("id", sessionStorage.taskId);
         form.append("user_id", sessionStorage.userId);
-        eval(`form.append("title", document.querySelectorAll('#updateTaskToDoTitle')[0].value)`);
+        
         eval(`form.append("description", document.querySelectorAll('#updateTaskToDoDescription')[0].value)`); 
         
         
@@ -295,8 +295,7 @@ export function AppToDoListPage() {
         let form = new FormData();
 
         form.append("id", sessionStorage.taskId);
-        form.append("user_id", sessionStorage.userId);
-        eval(`form.append("title", document.querySelectorAll('#updateTaskDoneTitle')[0].value)`);
+        form.append("user_id", sessionStorage.userId);        
         eval(`form.append("description", document.querySelectorAll('#updateTaskDoneDescription')[0].value)`);  
         
               
@@ -510,13 +509,8 @@ export function AppToDoListPage() {
                         <span onClick={closeUpdateToDoTaskForm}>Close</span>
                     </div>
 
-                    <div className={styles.inputsCreateTaskToDoForm}>                        
-                        
-                        <div className={styles.formInputs}>
-                            <div>Título:</div>
-                            <input id="updateTaskToDoTitle" type="text" />
-                            
-                        </div>
+                    <div className={styles.inputsCreateTaskToDoForm}> 
+                       
 
                         <div className={styles.formInputs}>
                             <div>Descrição:</div>
@@ -544,13 +538,8 @@ export function AppToDoListPage() {
                         <span onClick={closeUpdateToDoTaskForm}>Close</span>
                     </div>
 
-                    <div className={styles.inputsCreateTaskToDoForm}>                        
+                    <div className={styles.inputsCreateTaskToDoForm}>  
                         
-                        <div className={styles.formInputs}>
-                            <div>Título:</div>
-                            <input id="updateTaskDoneTitle" type="text" />
-                            
-                        </div>
 
                         <div className={styles.formInputs}>
                             <div>Descrição:</div>
