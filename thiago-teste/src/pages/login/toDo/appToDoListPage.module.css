@@ -1,209 +1,254 @@
-.toDoList {
-    width: 700px;
+@media (min-width: 100px) {
     
+
+    .toDoList {
+        width: 700px;  
+        
+        display: block;
+        justify-self: center;    
+        
+        /* border: solid 3px black; */
+        cursor:default; 
+
+
+    }
+
+
+    .taskProgress, .newTask {
+
+        width: 90%;
+        justify-self: center;
+        margin: 20px;   
+        
+        
+
+    }
+
+    .newTask {
+        
+        border: solid 2px green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    
+    }
+
+    .taskProgress {
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+        
+    }
+
+
+    .toDo{    
+        width: 300px;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        border: solid 2px rgba(154, 154, 154, 0.352);
+        margin-right: 20px;   
+        
+    }
+
+
+
+    .toDo > p{
+
+    
+        width: 100%;
+        height: 40px;
+        
+        text-align: center;
+        margin: 10px 10px 20px 10px;
+        display: flex;
+        flex-direction: column;   
+        align-items: center;
+
+    }
+
+    .toDoTasks {
+        overflow-y: scroll;   
+        flex-wrap: wrap;
+        height: 100%;
+    }
+
+
+    .toDoTasks > div{
+        
+        border: solid 2px green;
+        margin-bottom: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: row; 
+        
+    }
+
+    .toDoTasks > div > div{
+        
+        display: flex;    
+        align-items: center;    
+        
+    }
+
+
+
+    .toDoTasks > svg:nth-child(1), .toDoTasks > svg:nth-child(2) {
+        display: none;
+        
+    }
+
+    .toDoTasks svg:nth-child(1) {
+        margin-right: 10px;
+    }
+
+    .toDoTasks svg:nth-child(3) {   
+        margin-left: 10px;
+    }
+
+    .toDo > .eraseAll {   
+        background-color: black;
+        color: white;
+        margin: 20px;
+        width: 200px;    
+        justify-content: center;
+        align-self: center;
+        border-radius: 5px;
+        
+    
+        
+    }
+
+
+
+
+
+
+
+    .createTaskToDoFormBackground {
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.763);
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        visibility: hidden;
+    }
+
+
+    .createTaskToDoForm{
+        display: block;
+        margin: auto;
+        justify-content: center;        
+        width: 400px;
+        height: 400px;
+        background-color: white;
+        border: solid 2px green;
+    }
+
+    .closetoTaskForm {    
+        width: 100%;
+        height: 20px;    
+        display: flex;
+        justify-content:end;
+        align-items: center;
+    }
+
+
+
+    .closetoTaskForm > span {
+        width: 40px;
+        margin: 5px;
+        cursor: default;
+
+    }
+
+    .closetoTaskForm > span:hover {
+        background-color:  rgb(3, 246, 3);
+        color: black;
+        cursor: default;
+
+    }
+
+
+
+    .inputsCreateTaskToDoForm {
+        
+        border: solid 2px gray;
+        display: fixed;
+        width: 350px;
+        height: 90%;
+        align-content: center;
+        justify-items: center;
+        justify-self: center;
+        margin: auto;
+    }
+
+
+    .addNewTaskToDoButton {
+        background-color: rgb(3, 246, 3);
+        color: black;
+        margin: 10px;
+        padding: 5px;
+        
+        
+    }
+
+    .addNewTaskToDoButton:hover {
+        border: solid 2px black;
+        border-radius: 5px;
+    }
+
+}
+
+
+
+
+@media (max-width: 650px) {
+
+    .toDoList{
+        width: 300px;
+    }
+
+    .toDo{
+        width: 150px;
+        margin: 5px;
+    }
+
    
-    
-    display: block;
-    justify-self: center;
-    
-    
-    /* border: solid 3px black; */
-    cursor:default;
 
+    .toDoTasks  div{
+        flex-direction: column;
+        
+       margin: 5px;
+    }
+
+    .toDoTasks svg:nth-child(1), .toDoTasks svg:nth-child(3) {
+        margin: 0px;
+    }
+
+
+    .toDo > .eraseAll {   
+        background-color: black;
+        color: white;
+        margin: 20px;
+        width: 100px;    
+        justify-content: center;
+        align-self: center;
+        border-radius: 5px;
+        
+    
+        
+    }
+
+    
+    
 
 }
-
-
-.taskProgress, .newTask {
-
-    width: 90%;
-    justify-self: center;
-    margin: 20px;   
-    
-    
-
-}
-
-.newTask {
-    
-    border: solid 2px green;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-   
-}
-
-.taskProgress {
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-    
-}
-
-
-.toDo{    
-    width: 300px;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-    border: solid 2px rgba(154, 154, 154, 0.352);
-    margin-right: 20px;   
-    
-}
-
-
-
-.toDo > p{
-
-   
-    width: 100%;
-    height: 40px;
-    
-    text-align: center;
-    margin: 10px 10px 20px 10px;
-    display: flex;
-    flex-direction: column;   
-    align-items: center;
-
-}
-
-.toDoTasks {
-    overflow-y: scroll;   
-    flex-wrap: wrap;
-    height: 100%;
-}
-
-
-.toDoTasks > div{
-    
-    border: solid 2px green;
-    margin-bottom: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: row; 
-    
-}
-
-.toDoTasks > div > div{
-    
-    display: flex;    
-    align-items: center;    
-    
-}
-
-
-
-.toDoTasks > svg:nth-child(1), .toDoTasks > svg:nth-child(2) {
-    display: none;
-    
-}
-
-.toDoTasks svg:nth-child(1) {
-    margin-right: 10px;
-}
-
-.toDoTasks svg:nth-child(3) {   
-    margin-left: 10px;
-}
-
-.toDo > .eraseAll {   
-    background-color: black;
-    color: white;
-    margin: 20px;
-    width: 200px;    
-    justify-content: center;
-    align-self: center;
-    border-radius: 5px;
-    
-   
-    
-}
-
-
-
-
-
-
-
-.createTaskToDoFormBackground {
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.763);
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    visibility: hidden;
-}
-
-
-.createTaskToDoForm{
-    display: block;
-    margin: auto;
-    justify-content: center;        
-    width: 400px;
-    height: 400px;
-    background-color: white;
-    border: solid 2px green;
-}
-
-.closetoTaskForm {    
-    width: 100%;
-    height: 20px;    
-    display: flex;
-    justify-content:end;
-    align-items: center;
-}
-
-
-
-.closetoTaskForm > span {
-    width: 40px;
-    margin: 5px;
-    cursor: default;
-
-}
-
-.closetoTaskForm > span:hover {
-    background-color:  rgb(3, 246, 3);
-    color: black;
-    cursor: default;
-
-}
-
-
-
-.inputsCreateTaskToDoForm {
-    
-    border: solid 2px gray;
-    display: fixed;
-    width: 350px;
-    height: 90%;
-    align-content: center;
-    justify-items: center;
-    justify-self: center;
-    margin: auto;
-}
-
-
-.addNewTaskToDoButton {
-    background-color: rgb(3, 246, 3);
-    color: black;
-    margin: 10px;
-    padding: 5px;
-    
-    
-}
-
-.addNewTaskToDoButton:hover {
-    border: solid 2px black;
-    border-radius: 5px;
-}
-
- 
