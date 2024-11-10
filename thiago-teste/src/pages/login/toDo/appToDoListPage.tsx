@@ -74,7 +74,7 @@ export function AppToDoListPage() {
 
         let form = new FormData();
 
-        eval(`form.append("title", document.querySelectorAll("#newTaskTitle")[0].value)`);
+        
         eval(`form.append("description", document.querySelectorAll("#newTaskDescription")[0].value)`);
         form.append("user_id", sessionStorage.userId);
 
@@ -93,6 +93,8 @@ export function AppToDoListPage() {
         }
 
         allTasksToDoColumnOfUser();
+
+        eval(`document.querySelectorAll('#createTaskToDoFormBackground')[0].style.visibility = "hidden"`);
 
         
 
@@ -275,6 +277,8 @@ export function AppToDoListPage() {
         }
 
         allTasksToDoColumnOfUser();
+
+        closeUpdateToDoTaskForm();
         
     } 
 
@@ -309,6 +313,8 @@ export function AppToDoListPage() {
         }
 
         allTasksDoneColumnOfUser();
+
+        closeUpdateToDoTaskForm();
         
     }
 
@@ -316,29 +322,38 @@ export function AppToDoListPage() {
 
        
 
-        // let toDoTask = event.target.parentNode.parentNode.parentNode;
-        // let description = toDoTask.querySelectorAll('span')[0].value;
+        let toDoTask = event.target.parentNode.parentNode.parentNode;
+        let description = toDoTask.querySelectorAll('span')[0].innerHTML;
 
-        // let form = new FormData();
+        let form = new FormData();
 
-        // form.append("id", sessionStorage.taskId);
-        // form.append("user_id", sessionStorage.userId);        
-        // form.append("description", description)
+        form.append("id", sessionStorage.taskId);
+        form.append("user_id", sessionStorage.userId);        
+        form.append("description", description)
         
               
-        // await fetch(url + '/api/updateDoneTask', {
-        //     method: "POST",   
-        //     body: form
-        // })
+        await fetch(url + '/api/updateDoneTask', {
+            method: "POST",   
+            body: form
+        })
 
-        // let tasksColumns = document.querySelectorAll('#doneTasks div[task_id]');
+        let tasksColumnsToDO = document.querySelectorAll('#toDoTasks div[task_id]');
             
-        //     for (let index = 0; index < tasksColumns.length; index++) {
-        //         tasksColumns[index].remove(); 
+            for (let index = 0; index < tasksColumnsToDO.length; index++) {
+                tasksColumnsToDO[index].remove(); 
                                
-        // }
+            }
 
-        // allTasksDoneColumnOfUser();
+        let tasksColumnsDone = document.querySelectorAll('#doneTasks div[task_id]');
+            
+            for (let index = 0; index < tasksColumnsDone.length; index++) {
+                tasksColumnsDone[index].remove(); 
+                               
+        }
+
+        
+        allTasksToDoColumnOfUser();  
+        allTasksDoneColumnOfUser();
 
     }
 
@@ -430,6 +445,7 @@ export function AppToDoListPage() {
                 body: form
             })
 
+             
             allTasksDoneColumnOfUser();
 
         }
@@ -467,14 +483,8 @@ export function AppToDoListPage() {
                         <span onClick={closetoTaskForm}>Close</span>
                     </div>
 
-                    <div className={styles.inputsCreateTaskToDoForm}>
-                        
-                        <div className={styles.formInputs}>
-                            <div>Título:</div>
-                            <input id="newTaskTitle" type="text" />
-                            
-                        </div>
-
+                    <div className={styles.inputsCreateTaskToDoForm}>                        
+                       
                         <div className={styles.formInputs}>
                             <div>Descrição:</div>
                             <textarea id="newTaskDescription" rows={5} cols={40} />
