@@ -13,8 +13,7 @@ create table coopers.taskProgress(
 
 create table coopers.taskToDoList (
 
-    id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    title varchar(100) not null,
+    id int PRIMARY KEY NOT NULL AUTO_INCREMENT,    
     description varchar(1000) not null,
     taskProgress_id int not null,
     FOREIGN KEY (taskProgress_id) REFERENCES taskProgress(id),
@@ -28,4 +27,4 @@ INSERT INTO `coopers`.`users`( `name`, `user`, `email`, `password`) VALUES ('Thi
 
 INSERT INTO `coopers`.`taskProgress` (`name`) VALUES ('toDo'), ('Done');
 
-INSERT INTO `coopers`.`taskToDoList`(`title`, `description`, `user_id`, `taskProgress_id`) VALUES ('tarefa1','descrição1', 1, 1), ('tarefa2','descriçãoABC', 1, 1) , ('tarefa2','fasfasdfas', 1, 2)
+INSERT INTO `coopers`.`taskToDoList`(`description`, `user_id`, `taskProgress_id`) VALUES ('descrição1', 1, 1), ('descriçãoABC', 1, 1) , ('fasfasdfas', 1, 2)
