@@ -78,13 +78,33 @@
 
 .toDoTasks > div{
     
-    border: solid 1px black;
+    border: solid 2px green;
     margin-bottom: 10px;
     padding: 10px;
+    display: flex;
+    flex-direction: row; 
     
-
-
 }
+
+.toDoTasks > div > div{
+    
+    display: flex;    
+    align-items: center;    
+    
+}
+
+
+
+.toDoTasks > svg:first-child {
+    display: none;
+    
+}
+
+.toDoTasks svg {
+    margin-right: 10px;
+}
+
+
 
 
 

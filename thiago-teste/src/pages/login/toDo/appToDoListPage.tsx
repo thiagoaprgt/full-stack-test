@@ -1,4 +1,4 @@
-import { createElement, useEffect } from 'react';
+import {useEffect } from 'react';
 import styles from './appToDoListPage.module.css'
 
 
@@ -80,7 +80,7 @@ export function AppToDoListPage() {
 
         
 
-        let response = await fetch (url + "/api/createToDoTask", {
+        await fetch (url + "/api/createToDoTask", {
             method: "POST",
             body: form
         });
@@ -108,36 +108,20 @@ export function AppToDoListPage() {
         toDo.setAttribute('description', data.description);
 
         let divParent = document.createElement('div');
-        
 
-
-        let divChildTitle = document.createElement('div');  
-
-        let strongTitle = document.createElement('strong');
-        strongTitle.innerHTML = 'Título: ';
-
-        let spanTitle = document.createElement('span');
-        spanTitle.innerHTML = data.title;
-
-        divChildTitle.appendChild(strongTitle);
-        divChildTitle.appendChild(spanTitle);
-
-
-
+        let svg = document.querySelectorAll('#toDoTasks svg')[0]
+        let svgClone = svg.cloneNode(true); 
 
         let divChildDescription = document.createElement('div');
-
-        let strongDescription = document.createElement('strong');
-        strongDescription.innerHTML = 'Descrição: ';
 
         let spanDescription = document.createElement('span');
         spanDescription.innerHTML = data.description;
 
-        divChildDescription.appendChild(strongDescription);
+        
         divChildDescription.appendChild(spanDescription);
 
 
-        divParent.appendChild(divChildTitle);
+        divParent.append(svgClone);
         divParent.appendChild(divChildDescription);
         
 
@@ -154,7 +138,7 @@ export function AppToDoListPage() {
         
         let taskProgress = document.querySelectorAll('#toDo')[0];
         taskProgress.addEventListener("dragover", dragOver);
-        taskProgress.addEventListener("dragenter", dragEnter);
+        
         taskProgress.addEventListener("drop", dragDrop);  
 
        
@@ -171,7 +155,7 @@ export function AppToDoListPage() {
             toDo.addEventListener("dblclick", updateTaskToDoForm);
             toDo.addEventListener("dblclick", getTaskIdByEvent);
             toDo.addEventListener("dragstart", dragStart);           
-            toDo.addEventListener("dragleave", dragLeave);
+            
             
             let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];
             toDoTasksColumns.insertAdjacentElement('beforeend', toDo);
@@ -234,7 +218,7 @@ export function AppToDoListPage() {
 
         let taskProgress = document.querySelectorAll('#Done')[0];
         taskProgress.addEventListener("dragover", dragOver);
-        taskProgress.addEventListener("dragenter", dragEnter);
+        
         taskProgress.addEventListener("drop", dragDrop);
         
         let response = await fetch(url + '/api/done/' + sessionStorage.userId, {
@@ -250,8 +234,7 @@ export function AppToDoListPage() {
             Done.addEventListener("dblclick", updateTaskDoneForm);
             Done.addEventListener("dblclick", getTaskIdByEvent);
             Done.addEventListener("dragstart", dragStart);
-            Done.addEventListener("dragleave", dragLeave);    
-
+            
 
             let DoneTasksColumns = document.querySelectorAll('#doneTasks')[0];            
             DoneTasksColumns.insertAdjacentElement('beforeend', Done);
@@ -280,7 +263,7 @@ export function AppToDoListPage() {
         
         
               
-        let response = await fetch(url + '/api/updateToDoTask', {
+        await fetch(url + '/api/updateToDoTask', {
             method: "POST",   
             body: form
         })
@@ -314,7 +297,7 @@ export function AppToDoListPage() {
         eval(`form.append("description", document.querySelectorAll('#updateTaskDoneDescription')[0].value)`);  
         
               
-        let response = await fetch(url + '/api/updateDoneTask', {
+        await fetch(url + '/api/updateDoneTask', {
             method: "POST",   
             body: form
         })
@@ -346,16 +329,8 @@ export function AppToDoListPage() {
         event.preventDefault();
    }
 
-   let dragEnter = async(event:any) => {           
-        
-        console.log("draggedEnter");
-   }
-
-   let dragLeave = async(event:any) => {
-        
-        // console.log("dragged leave");
-
-   }
+   
+   
 
     let dragDrop = async(event:any) => {
        
@@ -388,7 +363,7 @@ export function AppToDoListPage() {
             form.append("user_id", sessionStorage.userId);
             
                 
-            let response = await fetch(url + '/api/updateToDoTask', {
+            await fetch(url + '/api/updateToDoTask', {
                 method: "POST",   
                 body: form
             })
@@ -421,7 +396,7 @@ export function AppToDoListPage() {
             form.append("user_id", sessionStorage.userId);
             
                 
-            let response = await fetch(url + '/api/updateDoneTask', {
+            await fetch(url + '/api/updateDoneTask', {
                 method: "POST",   
                 body: form
             })
@@ -577,7 +552,9 @@ export function AppToDoListPage() {
 
                         <div id="toDoTasks" className={styles.toDoTasks}>
 
-                            
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="11" stroke="#E88D39" stroke-width="2"/>
+                            </svg> 
 
                         </div>
 
