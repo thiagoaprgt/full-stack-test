@@ -44,17 +44,18 @@
 }
 
 
-.toDo {    
-    width: 250px;
+.toDo{    
+    width: 300px;
     height: 80vh;
     display: flex;
     flex-direction: column;
     justify-self: center;
-    border: solid 2px blue;
-    margin-right: 20px;
-    
+    border: solid 2px rgba(154, 154, 154, 0.352);
+    margin-right: 20px;   
     
 }
+
+
 
 .toDo > p{
 
@@ -96,14 +97,35 @@
 
 
 
-.toDoTasks > svg:first-child {
+.toDoTasks > svg:nth-child(1), .toDoTasks > svg:nth-child(2) {
     display: none;
     
 }
 
-.toDoTasks svg {
+.toDoTasks svg:nth-child(1) {
     margin-right: 10px;
 }
+
+.toDoTasks svg:nth-child(3) {   
+    margin-left: 10px;
+}
+
+.toDo > .eraseAll {   
+    background-color: black;
+    color: white;
+    margin: 20px;
+    width: 200px;    
+    justify-content: center;
+    align-self: center;
+    border-radius: 5px;
+    
+   
+    
+}
+
+
+
+
 
 
 
@@ -184,4 +206,4 @@
     border-radius: 5px;
 }
 
-
+ 
