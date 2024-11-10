@@ -133,9 +133,17 @@ api.post('/api/doLogin', async (request, response) => {
 api.get('/api/deleteTask/:id', async (request, response) => {  
 
         
-     
+     try {
 
-    response.json(await repositoryToDoList.deleteTask(request.params.id))    
+        response.json(await repositoryToDoList.deleteTask(request.params.id))   
+        
+     } catch (error) {
+
+        return {problem: "Ocorreu um erro"}
+        
+     }
+
+     
     
 })
 

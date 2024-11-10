@@ -168,6 +168,11 @@ export function AppToDoListPage() {
             let divCircleSvg =  toDo.querySelectorAll('.toDoTasks svg')[0].parentNode            
             divCircleSvg.addEventListener("click", getTaskIdByEvent);
             divCircleSvg.addEventListener("click", updateFrom_ToDo_to_Done);
+
+            
+            let divPathSvgDelete =  toDo.querySelectorAll('.toDoTasks svg')[1]; 
+            divPathSvgDelete.addEventListener("click", getTaskIdByEvent);
+            divPathSvgDelete.addEventListener("click", deleteTask);
             
             
             let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];
@@ -245,10 +250,17 @@ export function AppToDoListPage() {
             description.addEventListener("click", getTaskIdByEvent);
             
 
-            let divPathSvg =  Done.querySelectorAll('.doneTasks svg')[0];    
-            console.log(divPathSvg);      
-            divPathSvg.addEventListener("click", getTaskIdByEvent);
-            divPathSvg.addEventListener("click", updateFrom_To_Done_ToDo);
+            let divPathSvgCircle =  Done.querySelectorAll('.doneTasks svg')[0];    
+                 
+            divPathSvgCircle.addEventListener("click", getTaskIdByEvent);
+            divPathSvgCircle.addEventListener("click", updateFrom_To_Done_ToDo);
+
+            let divPathSvgDelete =  Done.querySelectorAll('.doneTasks svg')[1]; 
+            divPathSvgDelete.addEventListener("click", getTaskIdByEvent);
+            divPathSvgDelete.addEventListener("click", deleteTask);
+            
+
+
 
             
             
@@ -441,6 +453,20 @@ export function AppToDoListPage() {
                             
         }
 
+    }
+
+    let deleteTask = async(event:any) => {
+
+        await fetch(url + '/api/deleteTask/' + sessionStorage.taskId, {
+            method: "GET"
+        })
+
+        event.target.parentNode.parentNode.remove();
+
+        
+
+        
+        
     }
 
 
