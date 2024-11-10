@@ -71,7 +71,8 @@
 }
 
 .toDoTasks {
-    overflow-y: scroll;
+    overflow-y: scroll;   
+    flex-wrap: wrap;
     height: 100%;
 }
 
@@ -103,10 +104,6 @@
 .toDoTasks svg {
     margin-right: 10px;
 }
-
-
-
-
 
 
 

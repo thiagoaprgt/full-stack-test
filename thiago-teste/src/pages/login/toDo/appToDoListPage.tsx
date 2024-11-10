@@ -109,8 +109,10 @@ export function AppToDoListPage() {
 
         let divParent = document.createElement('div');
 
+        let divSvg = document.createElement('div');
         let svg = document.querySelectorAll('#toDoTasks svg')[0]
         let svgClone = svg.cloneNode(true); 
+        divSvg.appendChild(svgClone);
 
         let divChildDescription = document.createElement('div');
 
@@ -121,7 +123,7 @@ export function AppToDoListPage() {
         divChildDescription.appendChild(spanDescription);
 
 
-        divParent.append(svgClone);
+        divParent.append(divSvg);
         divParent.appendChild(divChildDescription);
         
 
@@ -154,7 +156,11 @@ export function AppToDoListPage() {
             let toDo:any = makeToDoElement(task);
             toDo.addEventListener("dblclick", updateTaskToDoForm);
             toDo.addEventListener("dblclick", getTaskIdByEvent);
-            toDo.addEventListener("dragstart", dragStart);           
+            toDo.addEventListener("dragstart", dragStart);
+            
+            let divCircleSvg =  toDo.querySelectorAll('.toDoTasks svg')[0].parentNode            
+            divCircleSvg.addEventListener("click", getTaskIdByEvent);
+            divCircleSvg.addEventListener("click", updateFrom_ToDo_to_Done);
             
             
             let toDoTasksColumns = document.querySelectorAll('#toDoTasks')[0];
@@ -179,31 +185,22 @@ export function AppToDoListPage() {
         let divParent = document.createElement('div');        
         
 
-        let divChildTitle = document.createElement('div');
+        let svg = document.querySelectorAll('#doneTasks svg')[0]
+        let svgClone = svg.cloneNode(true); 
 
-        let strongTitle = document.createElement('strong');
-        strongTitle.innerHTML = 'Título:';
-
-        let spanTitle = document.createElement('span');
-        spanTitle.innerHTML = data.title;
-
-        divChildTitle.appendChild(strongTitle);
-        divChildTitle.appendChild(spanTitle);
+       
 
 
         let divChildDescription = document.createElement('div');
 
-        let strongDescription = document.createElement('strong');
-        strongDescription.innerHTML = 'Descrição:';
+        
 
         let spanDescription = document.createElement('span');
         spanDescription.innerHTML = data.description;
-
-        divChildDescription.appendChild(strongDescription);
         divChildDescription.appendChild(spanDescription);
 
         
-        divParent.appendChild(divChildTitle);
+        divParent.appendChild(svgClone);
         divParent.appendChild(divChildDescription);
 
         done.appendChild(divParent);
@@ -311,6 +308,36 @@ export function AppToDoListPage() {
 
         allTasksDoneColumnOfUser();
         
+    }
+
+    let updateFrom_ToDo_to_Done = async (event:any) => {
+
+       
+
+        let toDoTask = event.target.parentNode.parentNode.parentNode;
+        let description = toDoTask.document.querySelectorAll('span')[0].value
+
+        let form = new FormData();
+
+        form.append("id", sessionStorage.taskId);
+        form.append("user_id", sessionStorage.userId);        
+        eval(`form.append("description", description`);  
+        
+              
+        await fetch(url + '/api/updateDoneTask', {
+            method: "POST",   
+            body: form
+        })
+
+        let tasksColumns = document.querySelectorAll('#doneTasks div[task_id]');
+            
+            for (let index = 0; index < tasksColumns.length; index++) {
+                tasksColumns[index].remove(); 
+                               
+        }
+
+        allTasksDoneColumnOfUser();
+
     }
 
 
@@ -553,7 +580,7 @@ export function AppToDoListPage() {
                         <div id="toDoTasks" className={styles.toDoTasks}>
 
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="11" stroke="#E88D39" stroke-width="2"/>
+                                <circle cx="12" cy="12" r="11" stroke="#E88D39" strokeWidth="2"/>
                             </svg> 
 
                         </div>
@@ -572,6 +599,11 @@ export function AppToDoListPage() {
                         </p>
 
                         <div id="doneTasks" className={styles.toDoTasks}>
+
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.9986 0C5.3778 0 0 5.38059 0 12.0014C0 18.6222 5.3778 24 11.9986 24C18.6194 24 24 18.6222 24 12.0014C24 5.38059 18.6194 0 11.9986 0ZM17.2738 6.5554C17.7138 6.5554 18.1525 6.72088 18.4848 7.05318C19.1494 7.71775 19.1494 8.81388 18.4848 9.47846L11.2123 16.7509C10.5477 17.4155 9.45105 17.4155 8.78648 16.7509L5.55537 13.5176C4.8908 12.853 4.8908 11.7586 5.55537 11.094C6.21995 10.4294 7.31441 10.4294 7.97898 11.094L9.99912 13.1147L16.0612 7.05318C16.3935 6.72088 16.8339 6.5554 17.2738 6.5554Z" fill="#4AC959"/>
+                            </svg>
+
 
                           
 

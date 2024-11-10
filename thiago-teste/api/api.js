@@ -69,8 +69,7 @@ api.get('/api/done/:userId', async (request, response) => {
 api.post('/api/updateToDoTask', async (request, response) => {  
     
     let data = {
-        id: Number.parseInt(request.body.id),
-        title: request.body.title,
+        id: Number.parseInt(request.body.id),        
         description: request.body.description,
         taskProgress_id: 1,
         user_id: Number.parseInt(request.body.user_id)
@@ -89,8 +88,7 @@ api.post('/api/updateToDoTask', async (request, response) => {
 api.post('/api/updateDoneTask', async (request, response) => {  
     
     let data = {
-        id: Number.parseInt(request.body.id),
-        title: request.body.title,
+        id: Number.parseInt(request.body.id),        
         description: request.body.description,
         taskProgress_id: 3,
         user_id: Number.parseInt(request.body.user_id)

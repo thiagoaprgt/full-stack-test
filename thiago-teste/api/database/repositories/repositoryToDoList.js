@@ -9,7 +9,7 @@ export class repositoryToDoList {
 
             let conn = await connection.open();
 
-            let sql = `INSERT INTO taskToDoList (title, description, taskProgress_id, user_id) VALUES('${data.title}', '${data.description}', 1, ${data.user_id})`;
+            let sql = `INSERT INTO taskToDoList (description, taskProgress_id, user_id) VALUES('${data.description}', 1, ${data.user_id})`;
 
             let [rows, fields] = await conn.query(sql); 
             
@@ -97,7 +97,7 @@ export class repositoryToDoList {
 
         try {
 
-            let sql = `UPDATE taskToDoList SET title = '${data.title}', description = '${data.description}', taskProgress_id = ${data.taskProgress_id}, user_id = ${data.user_id} WHERE id = ${data.id}`;
+            let sql = `UPDATE taskToDoList SET description = '${data.description}', taskProgress_id = ${data.taskProgress_id}, user_id = ${data.user_id} WHERE id = ${data.id}`;
            
             let conn = await connection.open();
             await conn.query(sql); 
