@@ -237,6 +237,12 @@ export function AppToDoListPage() {
             Done.addEventListener("dblclick", updateTaskDoneForm);
             Done.addEventListener("dblclick", getTaskIdByEvent);
             Done.addEventListener("dragstart", dragStart);
+
+            let divCircleSvg =  Done.querySelectorAll('.doneTasks svg')[0].parentNode            
+            divCircleSvg.addEventListener("click", getTaskIdByEvent);
+            divCircleSvg.addEventListener("click", updateFrom_To_Done_ToDo);
+
+            
             
 
             let DoneTasksColumns = document.querySelectorAll('#doneTasks')[0];            
@@ -334,6 +340,46 @@ export function AppToDoListPage() {
         
               
         await fetch(url + '/api/updateDoneTask', {
+            method: "POST",   
+            body: form
+        })
+
+        let tasksColumnsToDO = document.querySelectorAll('#toDoTasks div[task_id]');
+            
+            for (let index = 0; index < tasksColumnsToDO.length; index++) {
+                tasksColumnsToDO[index].remove(); 
+                               
+            }
+
+        let tasksColumnsDone = document.querySelectorAll('#doneTasks div[task_id]');
+            
+            for (let index = 0; index < tasksColumnsDone.length; index++) {
+                tasksColumnsDone[index].remove(); 
+                               
+        }
+
+        
+        allTasksToDoColumnOfUser();  
+        allTasksDoneColumnOfUser();
+
+    }
+
+
+    let updateFrom_To_Done_ToDo= async (event:any) => {
+
+       
+
+        let toDoneTask = event.target.parentNode.parentNode.parentNode;
+        let description = toDoneTask.querySelectorAll('span')[0].innerHTML;
+
+        let form = new FormData();
+
+        form.append("id", sessionStorage.taskId);
+        form.append("user_id", sessionStorage.userId);        
+        form.append("description", description)
+        
+              
+        await fetch(url + '/api/updateToDoTask', {
             method: "POST",   
             body: form
         })
