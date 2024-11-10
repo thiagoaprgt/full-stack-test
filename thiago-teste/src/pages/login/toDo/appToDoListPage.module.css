@@ -2,12 +2,9 @@
     
 
     .toDoList {
-        width: 700px;  
-        
+        width: 700px;          
         display: block;
-        justify-self: center;    
-        
-        /* border: solid 3px black; */
+        justify-self: center;          
         cursor:default; 
 
 
@@ -80,9 +77,9 @@
 
     .toDoTasks > div{
         
-        border: solid 2px green;
+        /* border: solid 2px green; */
         margin-bottom: 10px;
-        padding: 10px;
+        
         display: flex;
         flex-direction: row; 
         
@@ -91,7 +88,13 @@
     .toDoTasks > div > div{
         
         display: flex;    
-        align-items: center;    
+        align-items: center;          
+    }
+
+
+    .toDoTasks > div > div > *{
+        
+        margin-right: 5px;           
         
     }
 
@@ -109,6 +112,8 @@
     .toDoTasks svg:nth-child(3) {   
         margin-left: 10px;
     }
+
+    
 
     .toDo > .eraseAll {   
         background-color: black;
@@ -225,8 +230,9 @@
    
 
     .toDoTasks  div{
-        flex-direction: column;
-        
+
+        border: solid 2px green;
+        flex-direction: column;        
        margin: 5px;
     }
 

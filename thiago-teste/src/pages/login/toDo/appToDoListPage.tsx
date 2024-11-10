@@ -157,9 +157,13 @@ export function AppToDoListPage() {
         await db.map(async (task:any) => {
             
             let toDo:any = makeToDoElement(task);
-            toDo.addEventListener("dblclick", updateTaskToDoForm);
-            toDo.addEventListener("dblclick", getTaskIdByEvent);
             toDo.addEventListener("dragstart", dragStart);
+
+
+            let description =  toDo.querySelectorAll('.toDoTasks span')[0];
+            description.addEventListener("click", updateTaskToDoForm);
+            description.addEventListener("click", getTaskIdByEvent);
+            
             
             let divCircleSvg =  toDo.querySelectorAll('.toDoTasks svg')[0].parentNode            
             divCircleSvg.addEventListener("click", getTaskIdByEvent);
@@ -233,14 +237,18 @@ export function AppToDoListPage() {
         await db.map(async (task:any) => {
             
             let Done:any = makeDoneElement(task);  
-
-            Done.addEventListener("dblclick", updateTaskDoneForm);
-            Done.addEventListener("dblclick", getTaskIdByEvent);
             Done.addEventListener("dragstart", dragStart);
 
-            let divCircleSvg =  Done.querySelectorAll('.doneTasks svg')[0].parentNode            
-            divCircleSvg.addEventListener("click", getTaskIdByEvent);
-            divCircleSvg.addEventListener("click", updateFrom_To_Done_ToDo);
+            let description =  Done.querySelectorAll('.doneTasks span')[0];
+
+            description.addEventListener("click", updateTaskDoneForm);
+            description.addEventListener("click", getTaskIdByEvent);
+            
+
+            let divPathSvg =  Done.querySelectorAll('.doneTasks svg')[0];    
+            console.log(divPathSvg);      
+            divPathSvg.addEventListener("click", getTaskIdByEvent);
+            divPathSvg.addEventListener("click", updateFrom_To_Done_ToDo);
 
             
             
