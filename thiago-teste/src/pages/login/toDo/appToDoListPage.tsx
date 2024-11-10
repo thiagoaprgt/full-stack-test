@@ -224,6 +224,8 @@ export function AppToDoListPage() {
 
         let db = await response.json();
 
+        console.log(db.body)
+
         await db.map(async (task:any) => {
             
             let Done:any = makeDoneElement(task);  
@@ -314,29 +316,29 @@ export function AppToDoListPage() {
 
        
 
-        let toDoTask = event.target.parentNode.parentNode.parentNode;
-        let description = toDoTask.document.querySelectorAll('span')[0].value
+        // let toDoTask = event.target.parentNode.parentNode.parentNode;
+        // let description = toDoTask.querySelectorAll('span')[0].value;
 
-        let form = new FormData();
+        // let form = new FormData();
 
-        form.append("id", sessionStorage.taskId);
-        form.append("user_id", sessionStorage.userId);        
-        eval(`form.append("description", description`);  
+        // form.append("id", sessionStorage.taskId);
+        // form.append("user_id", sessionStorage.userId);        
+        // form.append("description", description)
         
               
-        await fetch(url + '/api/updateDoneTask', {
-            method: "POST",   
-            body: form
-        })
+        // await fetch(url + '/api/updateDoneTask', {
+        //     method: "POST",   
+        //     body: form
+        // })
 
-        let tasksColumns = document.querySelectorAll('#doneTasks div[task_id]');
+        // let tasksColumns = document.querySelectorAll('#doneTasks div[task_id]');
             
-            for (let index = 0; index < tasksColumns.length; index++) {
-                tasksColumns[index].remove(); 
+        //     for (let index = 0; index < tasksColumns.length; index++) {
+        //         tasksColumns[index].remove(); 
                                
-        }
+        // }
 
-        allTasksDoneColumnOfUser();
+        // allTasksDoneColumnOfUser();
 
     }
 
@@ -385,7 +387,7 @@ export function AppToDoListPage() {
             let form = new FormData();
 
             form.append("id", draggedElement.getAttribute('task_id'));
-            form.append("title", draggedElement.getAttribute('title'));
+            
             form.append("description", draggedElement.getAttribute('description'));
             form.append("user_id", sessionStorage.userId);
             
@@ -418,7 +420,7 @@ export function AppToDoListPage() {
             let form = new FormData();
 
             form.append("id", draggedElement.getAttribute('task_id'));
-            form.append("title", draggedElement.getAttribute('title'));
+            
             form.append("description", draggedElement.getAttribute('description'));
             form.append("user_id", sessionStorage.userId);
             
