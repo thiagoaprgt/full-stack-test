@@ -413,6 +413,37 @@ export function AppToDoListPage() {
     }
 
 
+    let eraseAllToDoTasks = async() => {
+
+        await fetch(url + '/api/deleteAllToDoTask', {
+            method: "GET"
+        });
+
+        let tasksColumns = document.querySelectorAll('#toDoTasks div[task_id]');
+            
+        for (let index = 0; index < tasksColumns.length; index++) {
+            tasksColumns[index].remove(); 
+                            
+        }
+
+    }
+
+    let eraseAllDoneTasks = async() => {
+
+        await fetch(url + '/api/deleteAllDoneTask', {
+            method: "GET"
+        })
+
+        let tasksColumns = document.querySelectorAll('#doneTasks div[task_id]');
+            
+        for (let index = 0; index < tasksColumns.length; index++) {
+            tasksColumns[index].remove(); 
+                            
+        }
+
+    }
+
+
     let draggedElement:any = null
 
    let dragStart = async (event:any) => {
@@ -648,7 +679,7 @@ export function AppToDoListPage() {
 
                         </div>
 
-                        <p className={styles.eraseAll}>erase all</p>
+                        <p onClick={eraseAllToDoTasks} className={styles.eraseAll}>erase all</p>
 
                         
 
@@ -676,7 +707,7 @@ export function AppToDoListPage() {
                         </div>
                         
 
-                        <p className={styles.eraseAll}>erase all</p>
+                        <p onClick={eraseAllDoneTasks} className={styles.eraseAll}>erase all</p>
 
 
                     </div>

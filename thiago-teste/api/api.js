@@ -139,19 +139,13 @@ api.get('/api/deleteTask/:id', async (request, response) => {
     
 })
 
-api.get('/api/deleteAllToDoTask', async (request, response) => {  
+api.get('/api/deleteAllToDoTask', async (request, response) => { 
 
-        
-     
-
-    response.json(await repositoryToDoList.deleteTask())    
+    response.json(await repositoryToDoList.deleteAllToDoTask())    
     
 })
 
 api.get('/api/deleteAllDoneTask', async (request, response) => {  
-
-        
-     
 
     response.json(await repositoryToDoList.deleteAllDoneTask())    
     
