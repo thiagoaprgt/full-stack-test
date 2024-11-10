@@ -225,15 +225,17 @@
     .toDo{
         width: 150px;
         margin: 5px;
-    }
-
-   
+    } 
 
     .toDoTasks  div{
 
-        border: solid 2px green;
+        
         flex-direction: column;        
-       margin: 5px;
+        margin: 5px;
+    }
+
+    .toDoTasks > div {
+        border: solid 2px green;
     }
 
     .toDoTasks svg:nth-child(1), .toDoTasks svg:nth-child(3) {
@@ -250,11 +252,7 @@
         align-self: center;
         border-radius: 5px;
         
-    
-        
-    }
-
-    
+    }    
     
 
 }
