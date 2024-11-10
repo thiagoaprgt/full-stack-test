@@ -585,22 +585,10 @@ export function AppToDoListPage() {
 
                     </div>
 
-                    <div id="inProgress" draggable="true"  className={styles.inProgress}>
-
-                        <p>
-                            In Progress
-                        </p>
-
-                        <div id="inProgressTasks" className={styles.toDoTasks}>
-
-                          
-
-                        </div>
-
-                    </div>
+                    
 
                     
-                    <div id="Done" draggable="true"  className={styles.inProgress}>
+                    <div id="Done" draggable="true"  className={styles.toDo}>
 
                         <p>
                             Done
