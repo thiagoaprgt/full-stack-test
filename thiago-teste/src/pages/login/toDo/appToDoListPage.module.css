@@ -44,7 +44,7 @@
 }
 
 
-.toDo, .inProgress {    
+.toDo {    
     width: 250px;
     height: 80vh;
     display: flex;
@@ -56,7 +56,7 @@
     
 }
 
-.toDo > p, .inProgress > p, .toDoTasks {
+.toDo > p{
 
    
     width: 100%;
@@ -70,13 +70,13 @@
 
 }
 
-.toDoTasks, .inProgressTasks {
+.toDoTasks {
     overflow-y: scroll;
     height: 100%;
 }
 
 
-.toDoTasks > div, .inProgressTasks > div {
+.toDoTasks > div{
     
     border: solid 1px black;
     margin-bottom: 10px;
