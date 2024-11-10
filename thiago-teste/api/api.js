@@ -10,12 +10,7 @@ const api = express();
 
 
 
-// api.use((req, res, next) => {
-//     res.append('Access-Control-Allow-Origin', 'http://127.0.0.1:8001/');
-//     res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//     res.append('Access-Control-Allow-Headers', 'Content-Type');
-//     next();
-// });
+
 
 api.use(cors()); 
 
@@ -55,19 +50,7 @@ api.get('/api/toDo/:userId', async (request, response) => {
 
 })
 
-api.get('/api/inProgress/:userId', async (request, response) => {    
 
-    try {
-
-        response.json( await repositoryToDoList.getAllTaskInProgressByUserId(request.params.userId));
-        
-    } catch (error) {
-
-        return {problem: "Ocorreu um problema"}
-        
-    }
-
-})
 
 api.get('/api/done/:userId', async (request, response) => {    
 
@@ -101,23 +84,7 @@ api.post('/api/updateToDoTask', async (request, response) => {
 
 })
 
-api.post('/api/updateInProgressTask', async (request, response) => {  
-    
-    let data = {
-        id: Number.parseInt(request.body.id),
-        title: request.body.title,
-        description: request.body.description,
-        taskProgress_id: 2,
-        user_id: Number.parseInt(request.body.user_id)
-        
-    }   
 
-
-    response.json(await repositoryToDoList.updateTask(data));
-
-    
-
-})
 
 api.post('/api/updateDoneTask', async (request, response) => {  
     

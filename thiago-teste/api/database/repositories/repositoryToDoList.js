@@ -42,14 +42,7 @@ export class repositoryToDoList {
 
     }
 
-    static async getAllTaskInProgressByUserId(userId) {
-
-        let conn = await connection.open();
-        let [rows, fields] = await conn.query(`SELECT * FROM taskToDoList WHERE user_id = ${userId} AND taskProgress_id = 2`);  
-
-        return await rows;
-
-    }
+   
 
     static async getAllTaskDoneByUserId(userId) {
 
