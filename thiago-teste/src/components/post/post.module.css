@@ -8,9 +8,18 @@
     }
 
     .mainPosts {
+        display: none;
+    }
+
+
+    .mainPostsCenter > .mainPosts {
         display: flex;
         flex-direction: row;
     }
+
+   
+
+    
 
     .postsList {
         border: solid 2px green;

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect} from 'react';
 import styles from './post.module.css'
 
 export function Post() {  
@@ -31,79 +31,80 @@ export function Post() {
 
 
     let previousArrow = () => {
+       
+        let count:any = Number.parseInt(eval(`sessionStorage.getItem("countPost")`));
+        count--;
 
-        let previousPost:any = document.querySelectorAll('#mainPosts > div')[0];
-
-        let centerPost:any = document.querySelectorAll('#mainPosts > div')[1];
-
-        let nexPost:any = document.querySelectorAll('#mainPosts > div')[2];
-
-
-        let posts = document.querySelectorAll('#mainPosts > div');
-
-        for (let index = 0; index < posts.length; index++) {
-            posts[index].remove();
+        if(count < 0) {
+            count = 2;
+            
+        }else if(count > 2) {
+            count = 0;
             
         }
 
-        let main = document.querySelectorAll("#mainPosts")[0];
+        sessionStorage.setItem("countPost", `${count}`);
 
-        main.insertAdjacentElement('beforeend', centerPost);
-        main.insertAdjacentElement('beforeend', nexPost);
-        main.insertAdjacentElement('beforeend', previousPost);
-
-
+        let mainPost = document.querySelectorAll('#mainPostsCenter > div')[0]
+        mainPost.remove();
        
+
+        mainPostCenter(count);
 
     }
 
 
     let nextArrow = () => {
 
-        let previousPost:any = document.querySelectorAll('#mainPosts > div')[0];
+        let count:any = Number.parseInt(eval(`sessionStorage.getItem("countPost")`));
+        count++;
 
-        let centerPost:any = document.querySelectorAll('#mainPosts > div')[1];
-
-        let nexPost:any = document.querySelectorAll('#mainPosts > div')[2];
-
-
-        let posts = document.querySelectorAll('#mainPosts > div');
-
-        for (let index = 0; index < posts.length; index++) {
-            posts[index].remove();
+        if(count < 0) {
+            count = 2;
+            
+        }else if(count > 2) {
+            count = 0;
             
         }
 
-        let main = document.querySelectorAll("#mainPosts")[0];               
-        
+        sessionStorage.setItem("countPost", `${count}`);
 
-        main.insertAdjacentElement('afterbegin', centerPost);
-        main.insertAdjacentElement('afterbegin', previousPost);
-        main.insertAdjacentElement('afterbegin', nexPost);
+        let mainPost = document.querySelectorAll('#mainPostsCenter > div')[0]
+        mainPost.remove();    
 
-
-
-        
-        
-        
-        
-
-
+        mainPostCenter(count);
        
 
     }
 
+    
+
+    let mainPostCenter = async (count:any) => {
+
+        let countPost = Number.parseInt(count)
+
+        if(countPost > 2 || countPost < 0) {
+            countPost = 0;
+        }
+
+        let main = document.querySelectorAll('#mainPostsCenter')[0]
+
+        let posts = document.querySelectorAll(`#mainPosts${countPost}`)[0];
+
+        let clonePost:any = posts.cloneNode(true);        
+
+        main.insertAdjacentElement("beforeend", clonePost);
+
+    }
+
+    sessionStorage.setItem("countPost", "0");
+
 
     useEffect(() => {
 
-        // makePost("Esse é o Primeiro post.");
-        // makePost("Esse é o Segundo post.");
-        // makePost("Esse é o Terceiro post.");
+        
 
-        /*
-            O useEffect serve para usar funções só
-            depois que todo o html for renderizado
-        */
+        mainPostCenter(sessionStorage.getItem("countPost"));
 
        
     });
@@ -118,8 +119,7 @@ export function Post() {
                     <img src="/images/setinha.png" alt="" />
                 </div>
 
-
-                <div id="mainPosts" className={styles.mainPosts} >
+                <div id="mainPosts0" className={styles.mainPosts} >
 
                     <div className={styles.postsList}>
 
@@ -148,6 +148,81 @@ export function Post() {
                    
 
                 </div>
+
+                <div id="mainPosts1"  className={styles.mainPosts} >
+
+                    <div className={styles.postsList}>
+
+                        <img src="/images/mulhoerLoginForm.png" alt="" />
+
+                        <p>Esse é o Post 4 !!!</p>
+
+                    </div>
+
+
+                    <div className={styles.postsList}>
+
+                        <img src="/images/mulhoerLoginForm.png" alt="" />
+
+                        <p>Esse é o Post 5 !!!</p>
+
+                    </div>
+
+                    <div className={styles.postsList}>
+
+                        <img src="/images/mulhoerLoginForm.png" alt="" />
+
+                        <p>Esse é o Post 6 !!!</p>
+
+                    </div>
+                   
+
+                </div>                
+
+
+                <div id="mainPosts2" className={styles.mainPosts} >
+
+                    <div className={styles.postsList}>
+
+                        <img src="/images/mulhoerLoginForm.png" alt="" />
+
+                        <p>Esse é o Post 7 !!!</p>
+
+                    </div>
+
+
+                    <div className={styles.postsList}>
+
+                        <img src="/images/mulhoerLoginForm.png" alt="" />
+
+                        <p>Esse é o Post 8 !!!</p>
+
+                    </div>
+
+                    <div className={styles.postsList}>
+
+                        <img src="/images/mulhoerLoginForm.png" alt="" />
+
+                        <p>Esse é o Post 9 !!!</p>
+
+                    </div>
+                   
+
+                </div>
+
+                
+                <div id="mainPostsCenter" className={styles.mainPostsCenter} >
+
+                   
+                   
+
+                </div>
+
+
+
+                
+
+                
 
                 <div className={styles.nextPost} onClick={nextArrow}>
                     <img src="/images/setinha.png" alt="" />
