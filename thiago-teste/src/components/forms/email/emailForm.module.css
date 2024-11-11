@@ -68,3 +68,12 @@
    
 }
 
+.emailButton {
+    background-color: #4AC959;
+    color: white;
+    width: 300px;
+    height: 35px;
+    text-align: center;
+    align-content: center;
+}
+
