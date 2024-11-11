@@ -1,0 +1,40 @@
+.emailForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.emailForm > div {
+    margin: 10px;
+    
+    
+}
+
+.emailName, .emailContact, .emailMessage {
+    
+    width: 300px;
+    
+}
+
+.emailContact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+
+}
+
+.emailContact > * {
+    
+    width: 145px;
+    
+}
+
+.emailName, .emailContact > *, .emailMessage {
+    
+    display: flex;
+    flex-direction: column;
+}
+

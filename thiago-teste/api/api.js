@@ -1,15 +1,28 @@
 import express from 'express'
 import formData from 'express-form-data';
-
-
 import { repositoryToDoList } from './database/repositories/repositoryToDoList.js';
-import cors from 'cors'
+import cors from 'cors';
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
 
+/**
+    É necessário criar na pasta api um arquivo 
+    com o nome .env com essa estrutura
+
+    driver= smtp,
+    user= email usado para enviar os emails,
+    host= smtp.gmail.com,
+    passwordr= coloque a senha do servidor smtp gerado pelo gmail
+    port= 587,
+    encription= TLS
+    
+*/
+
+
+// import { sendEmail } from './sendEmail.js';
 
 const api = express();
-
-
-
+dotenv.config({path: ".env"});
 
 
 api.use(cors()); 
@@ -157,6 +170,48 @@ api.get('/api/deleteAllDoneTask', async (request, response) => {
 
     response.json(await repositoryToDoList.deleteAllDoneTask())    
     
+})
+
+
+api.post('/api/sendEmail', async (request, response) => {
+
+
+    try {
+
+        let transporter = nodemailer.createTransport({
+           
+            host: process.env.host,
+            port: process.env.port,
+            secure: false,
+            auth: {
+                user: process.env.user,
+                pass: process.env.password,
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+
+        let options = {
+            from: process.env.user,
+            to: request.body.email,
+            subject: "Formulário do site toDolist",
+            html: `<p> ${request.body.message} </p>`
+           
+        }
+
+   
+
+        transporter.sendMail(options);        
+        response.json(request.body);
+    
+   } catch (error) {
+
+        console.log({problem: "Ocorreu um problema."})
+    
+   }
+    
+
 })
 
 api.listen(8001)

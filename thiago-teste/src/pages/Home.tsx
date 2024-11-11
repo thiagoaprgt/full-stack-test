@@ -2,6 +2,7 @@ import {NavBar} from '../components/navbar/navBar.tsx'
 import {Section} from '../components/section/section.tsx'
 import styles from '../components/body/body.module.css'
 import {ToDoList} from '../components/toDolist/toDoList.tsx'
+import { EmailForm } from '../components/forms/email/emailForm.tsx'
 import {Footer} from '../components/footer/footer.tsx'
 
 
@@ -39,7 +40,7 @@ function Home() {
 
       
 
-      
+        <EmailForm />
 
 
       
