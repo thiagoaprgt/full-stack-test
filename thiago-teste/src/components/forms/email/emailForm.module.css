@@ -11,7 +11,7 @@
     
 }
 
-.emailName, .emailContact, .emailMessage {
+.emailName, .emailContact, .emailMessage, .imgForm, .getInTouch {
     
     width: 300px;
     
@@ -36,5 +36,35 @@
     
     display: flex;
     flex-direction: column;
+}
+
+.imgForm {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+   
+}
+
+.imgForm > img{
+
+    
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
+
+.imgForm > rect {
+    width: 90px;
+    height: 60px;
+}
+
+.imgForm > svg {
+   
+    display: flex;    
+    z-index: -1;
+   
 }
 
