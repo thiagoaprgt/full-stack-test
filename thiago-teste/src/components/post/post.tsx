@@ -1,35 +1,9 @@
 import { useEffect} from 'react';
 import styles from './post.module.css'
 
-export function Post() {  
+export function Post() {      
     
     
-    let makePost = async (postDescription:any) => {
-
-        let postsList = document.createElement('div');
-        postsList.setAttribute('class', 'postsList');
-
-        let img = document.createElement('img');
-        img.setAttribute('src', '/images/mulhoerLoginForm.png');
-
-        let description = document.createElement('p');
-        description.innerHTML = postDescription;        
-
-        postsList.appendChild(img);
-        postsList.appendChild(description);
-
-
-        // let previousArrow = document.querySelectorAll('previousPost')[0];
-
-        let mainPosts = document.querySelectorAll('#mainPosts')[0];
-        mainPosts.appendChild(postsList);
-        
-
-        
-
-    }
-
-
     let previousArrow = () => {
        
         let count:any = Number.parseInt(eval(`sessionStorage.getItem("countPost")`));
