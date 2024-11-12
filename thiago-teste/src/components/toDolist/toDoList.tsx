@@ -1,10 +1,22 @@
 import styles from './toDoList.module.css'
 
 export function ToDoList() {
+
+    
+    let loginFormToggleVisibleToDolistBannerButton = async() => {
+        /*
+            a função do javascritp eval() valida a string como um comando javascript,
+            foi aqui pra que o react não de erro na proprieda .style
+        */
+            eval(`document.querySelectorAll('#loginFormBackground')[0].style.visibility = "visible"`);
+    }
+
+
+
     return(
         <>
 
-            <main>
+            <main onClick={loginFormToggleVisibleToDolistBannerButton}>
 
                 <div className={styles.toDoListBanner}>
 
