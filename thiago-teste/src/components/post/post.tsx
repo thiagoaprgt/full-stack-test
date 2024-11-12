@@ -184,13 +184,14 @@ export function Post() {
 
                 </div>
 
-                
-                <div id="mainPostsCenter" className={styles.mainPostsCenter} >
 
-                   
-                   
-
+                <div>
+                        <div className={styles.backgroundPost}></div>
+                        <div id="mainPostsCenter" className={styles.mainPostsCenter} > </div>
                 </div>
+
+                
+                
 
 
 

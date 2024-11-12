@@ -23,7 +23,7 @@
     
 
     .postsList {
-        border: solid 2px green;
+        border: solid 2px rgba(149, 149, 149, 0.24);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -37,11 +37,28 @@
 
     .previousPost {
         margin-right: 10px;
+        position: relative;
+        left: 90px;
+        top: 140px;
     }
 
     .nextPost {
         margin-left: 0px;
         rotate: 180deg;
+        position: relative;
+        right: 90px;
+        top: 140px;
+    }
+
+    .backgroundPost {
+        width: 625px;
+        height: 250px;
+        background-color: #4AC959;
+        position: relative;
+        z-index: -1;
+        top: 200px;
+        right: 80px;
+
     }
 }
 
