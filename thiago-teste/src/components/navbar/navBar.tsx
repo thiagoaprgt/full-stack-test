@@ -31,7 +31,7 @@ export function NavBar() {
                     
 
                     
-                    <div> COOPER</div>
+                    <div> <strong>COOPERS</strong></div>
                 </div>
                 
 
