@@ -1,4 +1,5 @@
-@media (min-width:650px) {
+@media (min-width:500px) {
+
     .post {
         width: 100%;
         
@@ -42,4 +43,55 @@
         margin-left: 0px;
         rotate: 180deg;
     }
+}
+
+
+@media(max-width:1049px) {
+
+    
+    .post {
+        width: 100%;        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mainPosts {
+        display: none;
+    }
+
+
+    .mainPostsCenter > .mainPosts {
+        display: flex;
+        flex-direction: row;
+    }
+
+   
+
+    
+
+    .postsList {
+        border: solid 2px green;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 10px;
+    }
+
+    .postsList img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    .previousPost {
+        margin-right: 10px;
+    }
+
+    .nextPost {
+        margin-left: 0px;
+        rotate: 180deg;
+    }
+
+    
+    
 }

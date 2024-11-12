@@ -47,7 +47,7 @@
 
 @media(max-width:1040px) {
 
-   .logoSvg, img{
+   .logoSvg, section >  img{
     display: none;
    }
 
