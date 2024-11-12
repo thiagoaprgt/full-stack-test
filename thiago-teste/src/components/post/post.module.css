@@ -1,69 +1,69 @@
-@media (min-width:500px) {
-
-    .post {
-        width: 100%;
-        
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .mainPosts {
-        display: none;
-    }
 
 
-    .mainPostsCenter > .mainPosts {
-        display: flex;
-        flex-direction: row;
-    }
-
-   
-
+.post {
+    width: 100%;
     
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    .postsList {
-        border: solid 2px rgba(149, 149, 149, 0.24);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-right: 10px;
-    }
-
-    .postsList img {
-        max-width: 200px;
-        height: 200px;
-    }
-
-    .previousPost {
-        margin-right: 10px;
-        position: relative;
-        left: 90px;
-        top: 140px;
-    }
-
-    .nextPost {
-        margin-left: 0px;
-        rotate: 180deg;
-        position: relative;
-        right: 90px;
-        top: 140px;
-    }
-
-    .backgroundPost {
-        width: 625px;
-        height: 250px;
-        background-color: #4AC959;
-        position: relative;
-        z-index: -1;
-        top: 200px;
-        right: 80px;
-
-    }
+.mainPosts {
+    display: none;
 }
 
 
-@media(max-width:1049px) {
+.mainPostsCenter > .mainPosts {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+.postsList {
+    border: solid 2px rgba(149, 149, 149, 0.24);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.postsList img {
+    max-width: 200px;
+    height: 200px;
+}
+
+.previousPost {
+    margin-right: 10px;
+    position: relative;
+    left: 90px;
+    top: 140px;
+}
+
+.nextPost {
+    margin-left: 0px;
+    rotate: 180deg;
+    position: relative;
+    right: 90px;
+    top: 140px;
+}
+
+.backgroundPost {
+    width: 625px;
+    height: 250px;
+    background-color: #4AC959;
+    position: relative;
+    z-index: -1;
+    top: 200px;
+    right: 80px;
+
+}
+
+
+
+@media(max-width:500px) {
 
     
     .post {
