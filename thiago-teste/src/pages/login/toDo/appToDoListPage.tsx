@@ -683,7 +683,7 @@ export function AppToDoListPage() {
                 <div id="newTaskForm" className={styles.newTask}>
 
                     Lista de Tarefas, arraste e solte os elementos para 
-                    trocá-los de coluna ou clique no símbolos.
+                    trocá-los de coluna ou clique nos símbolos.
 
                 </div>
 
