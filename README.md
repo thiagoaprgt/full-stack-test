@@ -10,6 +10,11 @@
 
 [disponível neste link](https://youtu.be/aJeKnpdFTPU)
 
+## Vídeo mostrando aplicação funcionando no localhost
+
+
+[disponível neste link](https://youtu.be/QSCB8B4pgac)
+
 
 
 # Avaliação Full Stack Developer
