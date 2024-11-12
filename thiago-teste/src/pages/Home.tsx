@@ -1,6 +1,6 @@
 import {NavBar} from '../components/navbar/navBar.tsx';
 import {Section} from '../components/section/section.tsx';
-import styles from '../components/body/body.module.css';
+
 import {ToDoList} from '../components/toDolist/toDoList.tsx';
 import { Post } from '../components/post/post.tsx';
 import { EmailForm } from '../components/forms/email/emailForm.tsx';
@@ -25,7 +25,7 @@ function Home() {
           
         
 
-        <div onLoad={userLogged} className={styles.navegation}>
+        <div onLoad={userLogged}>
 
           
 
