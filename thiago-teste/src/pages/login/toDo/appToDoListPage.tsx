@@ -568,6 +568,12 @@ export function AppToDoListPage() {
     }
 
 
+    let logout = async () => {
+        sessionStorage.removeItem("userId");
+        window.location.replace('http://localhost:5173/')
+    }
+
+
 
 
     useEffect(() => {
@@ -679,6 +685,12 @@ export function AppToDoListPage() {
                     Lista de Tarefas, arraste e solte os elementos para 
                     trocá-los de coluna ou clique no símbolos.
 
+                </div>
+
+                <div className={styles.logout}>
+                    <div onClick={logout}>
+                        logout
+                    </div>
                 </div>
 
                 <div id="taskProgress" className={styles.taskProgress}>
