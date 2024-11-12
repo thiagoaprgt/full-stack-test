@@ -35,8 +35,8 @@ export function NavBar() {
                 </div>
                 
 
-                <div onClick={loginFormToggleVisible} className={styles.navLeft}>
-                    <div>Entrar</div>
+                <div  className={styles.navLeft}>
+                    <div onClick={loginFormToggleVisible} >Entrar</div>
                 </div>
                
             
