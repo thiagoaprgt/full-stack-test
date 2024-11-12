@@ -676,7 +676,8 @@ export function AppToDoListPage() {
 
                 <div id="newTaskForm" className={styles.newTask}>
 
-                    Clique na coluna to Do para criar uma nova task
+                    Lista de Tarefas, arraste e solte os elementos para 
+                    trocá-los de coluna ou clique no símbolos.
 
                 </div>
 
