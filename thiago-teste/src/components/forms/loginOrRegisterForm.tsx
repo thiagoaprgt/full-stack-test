@@ -5,7 +5,8 @@ import styles from './loginOrRegisterForm.module.css'
 
 export function LoginOrRegisterForm() {
 
-    
+    let url = 'http://127.0.0.1';
+    let port = 8001;
 
     let loginFormToggleHidden = () => {
         /*
@@ -45,7 +46,7 @@ export function LoginOrRegisterForm() {
         eval(`form.append("password", document.querySelectorAll('#registerPassword')[0].value)`);        
         
               
-        let response = await fetch('http://127.0.0.1:8001/api/createUser', {
+        let response = await fetch(`${url}:${port}/api/createUser`, {
             method: "POST",   
             body: form
         })
@@ -63,7 +64,7 @@ export function LoginOrRegisterForm() {
         eval(`form.append("password", document.querySelectorAll('#doLoginPassword')[0].value)`);  
         
               
-        let response = await fetch('http://127.0.0.1:8001/api/doLogin', {
+        let response = await fetch(`${url}:${port}/api/doLogin`, {
             method: "POST",   
             body: form
         })
